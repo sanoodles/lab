@@ -2,7 +2,7 @@
 
 $a0 = array();
 $a1 = array("red", "green");
-$a2 = array("red", "blue");
+$a2 = array("red", "blue"); // repeated element "red"
 
 
 $m0 = array();
@@ -21,13 +21,13 @@ $m1 = array(
 		)
 );
 $m2 = array(
-		1001 => array(
-				"b11" => 221,
-				"b12" => 222
+		1001 => array( // repeated key
+				"b11" => 221, // repeated key, different value
+				"b12" => 222 // repeated key, different value
 		),
-		"asdf" => array(
-				"asdf11" => 231,
-				"asdf12" => 232
+		"asdf" => array( // repeated key
+				"asdf11" => 231, // repeated key, different value
+				"asdf12" => 232 // repeated key, different value
 		),
 		1002 => array(
 				"c11" => 241,
@@ -35,17 +35,24 @@ $m2 = array(
 		),
 );
 
-/*
+echo "<pre>";
+
+echo "\n\n\narray_merge(a1, a2)\n\n";
 $merge = array_merge($a1, $a2);
 var_dump($merge);
 
+echo "\n\n\narray_merge(a0, a1)\n\n";
 $merge = array_merge($a0, $a1);
 var_dump($merge);
 
+echo "\n\n\narray_merge(m1, m2)\n\n";
 $merge = array_merge($m1, $m2);
 var_dump($merge);
-*/
+
+echo "\n\n\narray_merge_recursive(m1, m2)\n\n";
 $merge = array_merge_recursive($m1, $m2);
 var_dump($merge);
+
+echo "</pre>";
 
 ?>
