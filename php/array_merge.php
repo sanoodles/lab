@@ -4,7 +4,6 @@ $a0 = array();
 $a1 = array("red", "green");
 $a2 = array("red", "blue"); // repeated element "red"
 
-
 $m0 = array();
 $m1 = array(
 		1000 => array(
@@ -35,6 +34,8 @@ $m2 = array(
 		),
 );
 
+
+
 echo "<pre>";
 
 echo "\n\n\narray_merge(a1, a2)\n\n";
@@ -49,16 +50,16 @@ echo "\n\n\narray_merge(m1, m2)\n\n";
 $merge = array_merge($m1, $m2);
 var_dump($merge);
 echo "\n";
-echo "numeric keys are not preserved.\n";
-echo "numeric keys are not merged.\n";
-echo "string keys of the second dimension are overriden.\n";
+echo "numeric keys are NOT preserved.\n";
+echo "numeric keys are NOT merged.\n";
+echo "string keys of the second dimension are overwritten.\n";
 
 echo "\n\n\narray_merge_recursive(m1, m2)\n\n";
 $merge = array_merge_recursive($m1, $m2);
 var_dump($merge);
 echo "\n";
-echo "numeric keys are not preserved.\n";
-echo "numeric keys are not merged.\n";
+echo "numeric keys are NOT preserved.\n";
+echo "numeric keys are NOT merged.\n";
 echo "string keys of the second dimension are merged.\n";
 
 echo "</pre>";
