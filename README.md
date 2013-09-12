@@ -1,8 +1,8 @@
 lab
 ===
-Index of contents:
+Table of contents:
 
-| Experiment        | PHP           | Python |
-| ------------- |:-------------:| -----:|
-| Array merge     | YES | WIP |
+| Experiment          | JS        | PHP       |    Python |
+| ------------------- |:---------:| ---------:| ---------:|
+| Array merge         | YES       | YES       | WIP       |
 
