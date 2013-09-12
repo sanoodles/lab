@@ -25,7 +25,7 @@ $m2 = array(
 				"b12" => 222 // repeated key, different value
 		),
 		"asdf" => array( // repeated key
-				"asdf11" => 231, // repeated key, different value
+				"asdf11" => 131, // repeated key, repeated value
 				"asdf12" => 232 // repeated key, different value
 		),
 		1002 => array(

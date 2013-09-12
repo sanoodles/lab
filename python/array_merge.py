@@ -32,8 +32,8 @@ def application(environ, start_response):
           'b12': 222 # repeated key, different value
         },
         'asdf': {
-          'asdf11': 231,
-          'asdf12': 232
+          'asdf11': 131, # repeated key, repeated value
+          'asdf12': 232 # repeated key, different value
         },
         1002: {
           'c11': 241,
@@ -57,8 +57,8 @@ def application(environ, start_response):
     merge = m1.copy()
     merge.update(m2)
     o += pprint.pformat(merge)
-    o += "numeric keys are preserved"
-    o += "existing keys are overwritten"
+    o += "\nnumeric keys are preserved"
+    o += "\nexisting keys are overwritten"
 
     ''' TODO
     o += "\n\n\n\nrecursive merge\n\n"
