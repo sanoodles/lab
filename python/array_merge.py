@@ -74,7 +74,7 @@ def application(environ, start_response):
     merge = dict_merge_recursive(merge, m2)
     o += pprint.pformat(merge)
     o += "\nnumeric keys are preserved"
-    o += "\nexisting keys are overwritten"
+    o += "\nexisting keys are merged"
 
 
 
