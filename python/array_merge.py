@@ -45,6 +45,14 @@ def application(environ, start_response):
 
     o += "<pre>"
 
+    '''
+    o += "\n\n\n\nm1\n\n"
+    o += pprint.pformat(m1)
+
+    o += "\n\n\n\nm2\n\n"
+    o += pprint.pformat(m2)
+    '''
+
     o += "\n\n\n\na1 + a2\n\n"
     merge = a1 + a2
     o += pprint.pformat(merge)
@@ -60,12 +68,12 @@ def application(environ, start_response):
     o += "\nnumeric keys are preserved"
     o += "\nexisting keys are overwritten"
 
-    ''' TODO
+    # WIP
     o += "\n\n\n\nrecursive merge\n\n"
     merge = m1.copy()
-    mergedicts(merge, m2)
+    merge = dict_merge_recursive(merge, m2)
     o += pprint.pformat(merge)
-    '''
+    
 
 
     o += "</pre>"
@@ -78,10 +86,21 @@ def application(environ, start_response):
     start_response(status, response_headers)
     return [o]
 
-# http://stackoverflow.com/questions/7204805/python-dictionaries-of-dictionaries-merge
-def mergedicts(dict1, dict2):
-    for k in set(dict1.keys()).union(dict2.keys()):
-        if k in dict1 and k in dict2:
-            yield (k, dict(mergedicts(dict1[k], dict2[k])))
-        elif k in dict1: yield (k, dict1[k])
-        else: yield (k, dict2[k])
+def dict_merge_recursive(d1, d2):
+    res = {}
+
+    if (type(d1) != dict or
+            type(d2) != dict):
+        return [d1, d2]
+
+    for p in d1:
+        res[p] = d1[p]
+
+    for p in d2:
+        if p in res:
+            res[p] = dict_merge_recursive(res[p], d2[p])
+        else:
+            res[p] = d2[p]
+
+    return res
+
