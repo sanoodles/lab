@@ -36,15 +36,15 @@ echo "\ncan find same array in matrix";
 
 echo "\n\n\n\n" . 'in_array($m1, $a2)' . "\n\n";
 var_dump(array_keys($m1, $a2));
-echo "\ndifferent array with same values is evaluated as a hit";
+echo "\ndifferent array with same values is evaluated as a hit. so it works by value.";
 
 echo "\n\n\n\n" . 'in_array($m1, $a3)' . "\n\n";
 var_dump(array_keys($m1, $a3));
-echo "\ndifferent array with different values is evaluated as a miss";
+echo "\ndifferent array with different values is evaluated as a miss. of course.";
 
 echo "\n\n\n\n" . 'in_array($m1, $a4)' . "\n\n";
 var_dump(array_keys($m1, $a4));
-echo "\ndifferent order of elements is evaluated as a miss";
+echo "\ndifferent order of elements is evaluated as a miss.";
 
 echo "</pre>";
 
