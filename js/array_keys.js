@@ -60,4 +60,5 @@ console.log("value appears changed in the matrix as well. works by reference.");
 console.log("-");
 console.log("m1.indexOf(a1)");
 console.log(m1.indexOf(a1));
+console.log("the array is also found.");
 
