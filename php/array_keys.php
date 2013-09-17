@@ -8,10 +8,11 @@ $a4 = array("b", "a"); // different order
 $m1 = array();
 
 /*
- * some arbitrary offset to ensure that this does not work just for the corner 
+ * some dummy value is put at position 3 to act as an arbitrary offset 
+ * that ensures that tests do not work just for the corner 
  * case of the needle being at first position of the haystack
  */  
-$m1[3] = array("asdf", "qwer");
+$m1[3] = array("dummy1", "dummy2");
  
 $m1[5] = $a1;
 
