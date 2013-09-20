@@ -26,6 +26,23 @@ var_dump($a1);
 echo "\n\n\n\n" . '$m1' . "\n\n";
 var_dump($m1);
 
+$a1 = array_reverse($a1);
+
+echo "\n\n\n\n" . 'after array_reverse($a1)' . "\n\n";
+
+echo "\n\n\n\n" . '$a1' . "\n\n";
+var_dump($a1);
+
+echo "\n\n\n\n" . '$m1' . "\n\n";
+var_dump($m1);
+echo "\na1 is not reversed in m1. so a1 was put into m1 by value.";
+
+$a1 = array_reverse($a1);
+echo "\n\n\n\n" . 'array_reverse($a1) again' . "\n\n";
+
+echo "\n\n\n\n" . '$a1' . "\n\n";
+var_dump($a1);
+
 echo "\n\n\n\n" . 'in_array($a1, "b")' . "\n\n";
 var_dump(array_keys($a1, "b"));
 echo "\nvanilla in_array";
