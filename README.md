@@ -4,7 +4,7 @@ Table of contents:
 
 | Experiment          | JS        | PHP       |    Python |
 | ------------------- |:---------:| ---------:| ---------:|
-| Assignment val/ref  |        | PHP       |        |
+| Assignment val/ref  | YES       | YES       |        |
 | Array merge         | YES       | YES       | YES       |
 | Array keys          | YES       | YES       |       |
 
