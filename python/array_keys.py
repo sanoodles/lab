@@ -11,14 +11,6 @@ def observation(v):
 def var_dump(v):
     o.append("\n" + pprint.pformat(v))
 
-class C1:
-    def __init__(self, v):
-        self.a1 = v
-    def __repr__(self):
-        return self.a1
-    def setA1(self, v):
-        self.a1 = v
-
 # wsgi header
 def application(environ, start_response):
     status = '200 OK'
