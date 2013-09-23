@@ -1,5 +1,15 @@
 <?php 
 
+function title($v)
+{
+  echo "\n\n\n\n" . $v . "\n\n";
+}
+
+function observation($v)
+{
+  echo "\n$v";
+}
+
 $a1 = array("a", "b");
 $a2 = array("a", "b"); // same value, different reference
 $a3 = array("a", "c"); // different value (and different reference)
@@ -20,48 +30,48 @@ $m1[5] = $a1;
 
 echo "<pre>";
 
-echo "\n\n\n\n" . '$a1' . "\n\n";
-var_dump($a1);
+title('$a1');
+var_export($a1);
 
-echo "\n\n\n\n" . '$m1' . "\n\n";
-var_dump($m1);
-
-$a1 = array_reverse($a1);
-
-echo "\n\n\n\n" . 'after array_reverse($a1)' . "\n\n";
-
-echo "\n\n\n\n" . '$a1' . "\n\n";
-var_dump($a1);
-
-echo "\n\n\n\n" . '$m1' . "\n\n";
-var_dump($m1);
-echo "\na1 is not reversed in m1. so a1 was put into m1 by value.";
+title('$m1');
+var_export($m1);
 
 $a1 = array_reverse($a1);
-echo "\n\n\n\n" . 'array_reverse($a1) again' . "\n\n";
 
-echo "\n\n\n\n" . '$a1' . "\n\n";
-var_dump($a1);
+title('after array_reverse($a1)');
 
-echo "\n\n\n\n" . 'in_array($a1, "b")' . "\n\n";
-var_dump(array_keys($a1, "b"));
-echo "\nvanilla in_array";
+title('$a1');
+var_export($a1);
 
-echo "\n\n\n\n" . 'in_array($m1, $a1)' . "\n\n";
-var_dump(array_keys($m1, $a1));
-echo "\ncan find same array in matrix";
+title('$m1');
+var_export($m1);
+observation('a1 is not reversed in m1. so a1 was put into m1 by value.');
 
-echo "\n\n\n\n" . 'in_array($m1, $a2)' . "\n\n";
-var_dump(array_keys($m1, $a2));
-echo "\ndifferent array with same values is evaluated as a hit. so it works by value.";
+$a1 = array_reverse($a1);
+title('array_reverse($a1) again');
 
-echo "\n\n\n\n" . 'in_array($m1, $a3)' . "\n\n";
-var_dump(array_keys($m1, $a3));
-echo "\ndifferent array with different values is evaluated as a miss. of course.";
+title('$a1');
+var_export($a1);
 
-echo "\n\n\n\n" . 'in_array($m1, $a4)' . "\n\n";
-var_dump(array_keys($m1, $a4));
-echo "\ndifferent order of elements is evaluated as a miss.";
+title('array_keys($a1, "b")');
+var_export(array_keys($a1, "b"));
+observation('vanilla array_keys');
+
+title('array_keys($m1, $a1)');
+var_export(array_keys($m1, $a1));
+observation('can find same array in matrix');
+
+title('array_keys($m1, $a2)');
+var_export(array_keys($m1, $a2));
+observation('different array with same values is evaluated as a hit. so it works by value');
+
+title('array_keys($m1, $a3)');
+var_export(array_keys($m1, $a3));
+observation('different array with different values is evaluated as a miss. of course.');
+
+title('array_keys($m1, $a4)');
+var_export(array_keys($m1, $a4));
+observation('different order of elements is evaluated as a miss.');
 
 echo "</pre>";
 
