@@ -1,3 +1,4 @@
+use strict;
 use Data::Dumper;
 use File::Basename;
 use lib dirname(__FILE__);
@@ -84,26 +85,23 @@ observation("does not change <-> by value");
 
 title("new object");
 my $obj1 = new C1("a");
-=pod
 sca_dump($obj1);
-my @arr1 = array(@obj1);
+my @arr1 = ($obj1);
 arr_dump(@arr1);
 $obj1 = new C1("b");
 sca_dump($obj1);
 arr_dump(@arr1);
 observation("does not change");
 
-=pod
 title("modified object");
-$obj1 = new C1("a");
-var_dump($obj1);
-$arr1 = array($obj1);
-var_dump($arr1);
+my $obj1 = new C1("a");
+sca_dump($obj1);
+my @arr1 = ($obj1);
+arr_dump(@arr1);
 $obj1->setA1("b");
-var_dump($obj1);
-var_dump($arr1);
+sca_dump($obj1);
+arr_dump(@arr1);
 observation("changes");
-=cut
 
 print "</pre>";
 
