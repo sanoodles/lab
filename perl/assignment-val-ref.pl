@@ -73,15 +73,35 @@ arr_dump(@arr2);
 arr_dump(@arr1);
 observation("does not change <-> by value");
 
-title("map");
-my %map1 = ("k1", "a");
-aar_dump(%map1);
-my @arr1 = (%map1);
+title("reference to array");
+my @arr2 = ("a");
+arr_dump(@arr2);
+my @arr1 = (\@arr2);
 arr_dump(@arr1);
-$map1{"k1"} = "b";
-aar_dump(%map1);
+push(@arr2, "b");
+arr_dump(@arr2);
+arr_dump(@arr1);
+observation("changes <-> by reference");
+
+title("associative array");
+my %aar1 = ("k1", "a");
+aar_dump(%aar1);
+my @arr1 = (%aar1);
+arr_dump(@arr1);
+$aar1{"k1"} = "b";
+aar_dump(%aar1);
 arr_dump(@arr1);
 observation("does not change <-> by value");
+
+title("reference to associative array");
+my %aar1 = ("k1", "a");
+aar_dump(%aar1);
+my @arr1 = (\%aar1);
+arr_dump(@arr1);
+$aar1{"k1"} = "b";
+aar_dump(%aar1);
+arr_dump(@arr1);
+observation("changes <-> by reference");
 
 title("new object");
 my $obj1 = new C1("a");
