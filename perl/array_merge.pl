@@ -1,5 +1,6 @@
 use strict;
 use Data::Dumper;
+use Hash::Merge qw( merge );
 
 sub title
 {
@@ -33,6 +34,39 @@ sub observation
 {
   my $v = shift;
   print "\n$v";
+}
+
+sub hash_merge_recursive
+{
+  my $a1 = shift;
+  my $a2 = shift;
+
+  my %res = ();
+
+  if ( ref($a1) ne "HASH" or
+      ref($a2) ne "HASH" )
+  {
+    # assuming they are scalars
+    return ($a1, $a2); # dereferencing http://www.perlmeme.org/howtos/using_perl/dereferencing.html
+  }
+
+  while (my($k, $v) = each %$a1)
+  {
+    $res{$k} = $v;
+  }
+
+  while (my($k, $v) = each %$a2)
+  {
+    if (exists $res{$k})
+    {
+      $res{$k} = hash_merge_recursive(%res, $a2->{$k});
+    } else
+    {
+      $res{$k} = $a2->{$k};
+    }
+  }
+
+  return %res;
 }
 
 
@@ -94,14 +128,12 @@ aar_dump(%merge);
 observation("numeric keys become string keys.");
 observation("string keys of the second dimension are overwritten.");
 
-=pod
-echo "\n\n\narray_merge_recursive(m1, m2)\n\n";
-$merge = array_merge_recursive($m1, $m2);
-var_dump($merge);
-echo "\n";
-echo "numeric keys are NOT preserved.\n";
-echo "numeric keys are NOT merged.\n";
-echo "string keys of the second dimension are merged.\n";
-=cut
+title("Hash:Merge::merge(m1, m2) with RETAINMENT_PRECEDENT");
+Hash::Merge::set_behavior('RETAINMENT_PRECEDENT');
+%merge = %{ merge(\%m1, \%m2) };
+aar_dump(%merge);
+observation("numeric keys become string keys.");
+observation("existing keys are merged.");
+
 print "</pre>";
 
