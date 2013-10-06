@@ -36,39 +36,6 @@ sub observation
   print "\n$v";
 }
 
-sub hash_merge_recursive
-{
-  my $a1 = shift;
-  my $a2 = shift;
-
-  my %res = ();
-
-  if ( ref($a1) ne "HASH" or
-      ref($a2) ne "HASH" )
-  {
-    # assuming they are scalars
-    return ($a1, $a2); # dereferencing http://www.perlmeme.org/howtos/using_perl/dereferencing.html
-  }
-
-  while (my($k, $v) = each %$a1)
-  {
-    $res{$k} = $v;
-  }
-
-  while (my($k, $v) = each %$a2)
-  {
-    if (exists $res{$k})
-    {
-      $res{$k} = hash_merge_recursive(%res, $a2->{$k});
-    } else
-    {
-      $res{$k} = $a2->{$k};
-    }
-  }
-
-  return %res;
-}
-
 
 
 my @a0 = ();
