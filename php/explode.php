@@ -26,12 +26,12 @@ observation("");
 title('explode empty string');
 $res = explode(",", $s0);
 var_export($res);
-observation("");
+observation("one position, with an empty string is returned.");
 
 title('explode on delimiter at the end');
 $res = explode(",", $s2);
 var_export($res);
-observation("");
+observation("one ending position, with an empty string, is returned.");
 
 title('explode on delimiter at the beginning');
 $res = explode(",", $s3);
