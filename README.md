@@ -9,5 +9,5 @@ Table of contents:
 | Array keys          | YES       | YES       | YES       | YES       |
 | Explode             | YES       | YES       | YES       | YES       |
 | Map access          | YES       | YES       | YES       | YES       |
-| HTML forms          |           | YES       | YES       | YES       |
+| HTML forms          | Client    | YES       | YES       | YES       |
 
