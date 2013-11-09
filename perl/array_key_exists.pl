@@ -71,22 +71,22 @@ observation("The same over a hash value.");
 title("shorter syntax: exists hashref1{k2}");
 my $res = exists $$hashref1{k2};
 sca_dump($res);
-observation("If exists, returns number one");
+observation("same");
 
 title("shorter syntax: exists hashref1{'nonono'}");
 my $res = exists $$hashref1{nonono};
 sca_dump($res);
-observation("If does not exist, returns empty string");
+observation("same");
 
 title("shorter syntax: exists hashval1{'k2'}");
 my $res = exists $hashval1{'k2'};
 sca_dump($res);
-observation("");
+observation("same");
 
 title("shorter syntax: exists hashval1{'nonono'}");
 my $res = exists $hashval1{'nonono'};
 sca_dump($res);
-observation("");
+observation("same");
 
 
 
