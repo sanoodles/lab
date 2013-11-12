@@ -68,23 +68,14 @@ my $res = exists %hashval1->{'nonono'};
 sca_dump($res);
 observation("The same over a hash value.");
 
-title("shorter syntax: exists hashref1{k2}");
+title("shorter syntax like exists hashref1{k2}");
 my $res = exists $$hashref1{k2};
 sca_dump($res);
-observation("same");
-
-title("shorter syntax: exists hashref1{'nonono'}");
 my $res = exists $$hashref1{nonono};
 sca_dump($res);
-observation("same");
-
-title("shorter syntax: exists hashval1{'k2'}");
-my $res = exists $hashval1{'k2'};
+my $res = exists $hashval1{k2};
 sca_dump($res);
-observation("same");
-
-title("shorter syntax: exists hashval1{'nonono'}");
-my $res = exists $hashval1{'nonono'};
+my $res = exists $hashval1{nonono};
 sca_dump($res);
 observation("same");
 
