@@ -5,7 +5,7 @@ Table of contents:
 | Experiment          | JS        | Perl      | PHP       | Python    |
 | ------------------- |:---------:| ---------:| ---------:| ---------:|
 | Assignment val/ref  | YES       | YES       | YES       | YES       |
-| Array key exists    | YES       | YES       | YES       |           |
+| Array key exists    | YES       | YES       | YES       | YES       |
 | Array merge         | YES       | YES       | YES       | YES       |
 | Array keys          | YES       | YES       | YES       | YES       |
 | Explode             | YES       | YES       | YES       | YES       |
