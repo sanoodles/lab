@@ -4,7 +4,6 @@ use warnings;
 use Data::Dumper;
 use File::Basename;
 use lib dirname(__FILE__);
-use StrictlyTriangularMatrix;
 
 sub title
 {
