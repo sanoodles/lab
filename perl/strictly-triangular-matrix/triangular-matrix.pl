@@ -2,7 +2,9 @@ package main;
 use strict;
 use warnings;
 use Data::Dumper;
-require 'StrictlyTriangularMatrix.class.pl';
+use File::Basename;
+use lib dirname(__FILE__);
+use StrictlyTriangularMatrix;
 
 sub title
 {
@@ -52,8 +54,6 @@ sub getIsDistanceAMatchFunction {
     return $distance <= $maxMatchDistance;
   }
 }
-
-
 
 print "Content-Type: text/html\n\n";
 print "<table><tr><td><pre>";
