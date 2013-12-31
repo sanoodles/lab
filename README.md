@@ -13,5 +13,5 @@ Table of contents:
 | HTML forms                      | Client    | YES       | YES       | YES       |
 | OO: same class dif. object      | n/a       | n/a       | YES       | n/a       |
 | OO: same superclass dif. object | n/a       | n/a       | YES       | n/a       |
-| Strictly triangular matrix      |           |           | YES       |           |
+| Strictly triangular matrix      |           | YES       | YES       |           |
 
