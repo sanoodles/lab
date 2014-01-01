@@ -1,4 +1,5 @@
 use strict;
+use warnings;
 use Data::Dumper;
 use CGI; # for accessing HTTP stuff: http://perldoc.perl.org/CGI.html
 
@@ -8,26 +9,10 @@ sub title
   print "\n\n\n\n$v\n\n";
 }
 
-sub sca_dump
+sub var_dump
 {
   my $v = shift;
   print Dumper $v;
-}
-
-sub arr_dump
-{
-  print "array {\n";
-  my @v = @_;
-  print Dumper @v;
-  print "}\n";
-}
-
-sub aar_dump
-{
-  print "associative array {\n";
-  my %v = @_;
-  print Dumper %v;
-  print "}\n";
 }
 
 sub observation
@@ -56,14 +41,15 @@ if ( $q->param("submit") )
 {
   print "<h2>q->param()</h2>";
   print "<pre>";
-  arr_dump($q->param());
+  var_dump([$q->param()]);
+  observation("Only square brackets seem to work to print the full param() array");
   print "</pre>";
 
   print "<h2>q->upload()</h2>";
   print "<pre>";
   my $filename = $q->param("file");
-  arr_dump($q->uploadInfo($filename));
-  sca_dump((-s $filename)); # http://stackoverflow.com/questions/2711860/
+  var_dump($q->uploadInfo($filename));
+  var_dump((-s $filename)); # http://stackoverflow.com/questions/2711860/
   print "</pre>";
 }
 

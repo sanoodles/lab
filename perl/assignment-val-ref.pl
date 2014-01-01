@@ -1,4 +1,5 @@
 use strict;
+use warnings;
 use Data::Dumper;
 use File::Basename;
 use lib dirname(__FILE__);
@@ -10,26 +11,10 @@ sub title
   print "\n\n\n\n$v\n\n";
 }
 
-sub sca_dump
+sub var_dump
 {
   my $v = shift;
   print Dumper $v;
-}
-
-sub arr_dump
-{
-  print "array {\n";
-  my @v = @_;
-  print Dumper @v;
-  print "}\n";
-}
-
-sub aar_dump
-{
-  print "associative array {\n";
-  my %v = @_;
-  print Dumper %v;
-  print "}\n";
 }
 
 sub observation
@@ -45,82 +30,86 @@ print "<pre>";
 
 title("int");
 my $int1 = 3;
-sca_dump($int1);
+var_dump($int1);
 my @arr1 = ($int1);
-arr_dump(@arr1);
+var_dump(\@arr1);
 $int1 = 5;
-sca_dump($int1);
-arr_dump(@arr1);
+var_dump($int1);
+var_dump(\@arr1);
 observation("does not change <-> by value");
 
 title("string");
 my $str1 = "a";
-sca_dump($str1);
-my @arr1 = ($str1);
-arr_dump(@arr1);
+var_dump($str1);
+@arr1 = ($str1);
+var_dump(\@arr1);
 $str1 = "b";
-sca_dump($str1);
-arr_dump(@arr1);
+var_dump($str1);
+var_dump(\@arr1);
 observation("does not change <-> by value");
 
 title("array");
 my @arr2 = ("a");
-arr_dump(@arr2);
-my @arr1 = (@arr2);
-arr_dump(@arr1);
+var_dump(\@arr2);
+@arr1 = (@arr2);
+var_dump(\@arr1);
 push(@arr2, "b");
-arr_dump(@arr2);
-arr_dump(@arr1);
+var_dump(\@arr2);
+var_dump(\@arr1);
+observation("assigning array between parentheses has no effect");
 observation("does not change <-> by value");
 
 title("reference to array");
-my @arr2 = ("a");
-arr_dump(@arr2);
-my @arr1 = (\@arr2);
-arr_dump(@arr1);
+@arr2 = ("a");
+var_dump(\@arr2);
+@arr1 = (\@arr2);
+var_dump(\@arr1);
 push(@arr2, "b");
-arr_dump(@arr2);
-arr_dump(@arr1);
+var_dump(\@arr2);
+var_dump(\@arr1);
+observation("assigning array reference between parentheses nests it into array");
 observation("changes <-> by reference");
 
-title("associative array");
+title("hash");
 my %aar1 = ("k1", "a");
-aar_dump(%aar1);
-my @arr1 = (%aar1);
-arr_dump(@arr1);
+var_dump(\%aar1);
+@arr1 = (%aar1);
+var_dump(\@arr1);
 $aar1{"k1"} = "b";
-aar_dump(%aar1);
-arr_dump(@arr1);
+var_dump(\%aar1);
+var_dump(\@arr1);
+observation("assigning hash between parenthesis flattens it to an array");
 observation("does not change <-> by value");
 
-title("reference to associative array");
-my %aar1 = ("k1", "a");
-aar_dump(%aar1);
-my @arr1 = (\%aar1);
-arr_dump(@arr1);
+title("reference to hash");
+%aar1 = ("k1", "a");
+var_dump(\%aar1);
+@arr1 = (\%aar1);
+var_dump(\@arr1);
 $aar1{"k1"} = "b";
-aar_dump(%aar1);
-arr_dump(@arr1);
+var_dump(\%aar1);
+var_dump(\@arr1);
+observation("assigning hash reference between parenthesis nests it into array");
 observation("changes <-> by reference");
 
 title("new object");
 my $obj1 = new C1("a");
-sca_dump($obj1);
-my @arr1 = ($obj1);
-arr_dump(@arr1);
+var_dump($obj1);
+@arr1 = ($obj1);
+var_dump(\@arr1);
 $obj1 = new C1("b");
-sca_dump($obj1);
-arr_dump(@arr1);
+var_dump($obj1);
+var_dump(\@arr1);
 observation("does not change");
 
 title("modified object");
-my $obj1 = new C1("a");
-sca_dump($obj1);
-my @arr1 = ($obj1);
-arr_dump(@arr1);
+$obj1 = new C1("a");
+var_dump($obj1);
+@arr1 = ($obj1);
+var_dump(\@arr1);
 $obj1->setA1("b");
-sca_dump($obj1);
-arr_dump(@arr1);
+var_dump($obj1);
+var_dump(\@arr1);
 observation("changes");
 
 print "</pre>";
