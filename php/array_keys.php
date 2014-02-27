@@ -75,4 +75,21 @@ observation('different order of elements is evaluated as a miss.');
 
 echo "</pre>";
 
+if (!class_exists('PHPUnit_Framework_TestCase')) exit;
+
+class Test extends PHPUnit_Framework_TestCase
+{
+  public function test()
+  {
+    global $merge1;
+    $this->assertEquals(["red", "green", "red", "blue"], $merge1);
+  }
+
+  public function test2()
+  {
+    global $merge2;
+    $this->assertEquals($merge2, ["red", "green"]);
+  }
+}
+
 ?>

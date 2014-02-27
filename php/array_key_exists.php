@@ -24,4 +24,15 @@ observation('');
 
 echo "</pre>";
 
+if (!class_exists('PHPUnit_Framework_TestCase')) exit;
+
+class Test extends PHPUnit_Framework_TestCase
+{
+  public function test()
+  {
+    global $res;
+    $this->assertTrue($res);
+  }
+}
+
 ?>
