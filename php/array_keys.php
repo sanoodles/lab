@@ -54,23 +54,28 @@ title('$a1');
 var_export($a1);
 
 title('array_keys($a1, "b")');
-var_export(array_keys($a1, "b"));
+$res1 = array_keys($a1, "b");
+var_export($res1);
 observation('vanilla array_keys');
 
 title('array_keys($m1, $a1)');
-var_export(array_keys($m1, $a1));
+$res2 = array_keys($m1, $a1);
+var_export($res2);
 observation('can find same array in matrix');
 
 title('array_keys($m1, $a2)');
-var_export(array_keys($m1, $a2));
+$res3 = array_keys($m1, $a2);
+var_export($res3);
 observation('different array with same values is evaluated as a hit. so it works by value');
 
 title('array_keys($m1, $a3)');
-var_export(array_keys($m1, $a3));
+$res4 = array_keys($m1, $a3);
+var_export($res4);
 observation('different array with different values is evaluated as a miss. of course.');
 
 title('array_keys($m1, $a4)');
-var_export(array_keys($m1, $a4));
+$res5 = array_keys($m1, $a4);
+var_export($res5);
 observation('different order of elements is evaluated as a miss.');
 
 echo "</pre>";
@@ -81,15 +86,34 @@ class Test extends PHPUnit_Framework_TestCase
 {
   public function test()
   {
-    global $merge1;
-    $this->assertEquals(["red", "green", "red", "blue"], $merge1);
+    global $res1;
+    $this->assertEquals([0 => 1], $res1);
   }
 
   public function test2()
   {
-    global $merge2;
-    $this->assertEquals($merge2, ["red", "green"]);
+    global $res2;
+    $this->assertEquals([0 => 5], $res2);
   }
+
+  public function test3()
+  {
+    global $res3;
+    $this->assertEquals([0 => 5], $res3);
+  }
+
+  public function test4()
+  {
+    global $res4;
+    $this->assertEquals([], $res4);
+  }
+
+  public function test5()
+  {
+    global $res5;
+    $this->assertEquals([], $res5);
+  }
+
 }
 
 ?>

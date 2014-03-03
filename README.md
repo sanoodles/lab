@@ -6,8 +6,8 @@ Table of contents:
 | ---------------------------     |:---------:| ---------:| ---------:| ---------:|
 | Assignment val/ref              | YES       | YES       | YES       | YES       |
 | Array key exists                | YES       | YES       | YES       | YES       |
-| Array merge                     | YES       | YES       | Tested    | YES       |
-| Array keys                      | YES       | YES       | Tested    | YES       |
+| Array merge                     | YES       | YES       | PHPUnit   | YES       |
+| Array keys                      | YES       | YES       | PHPUnit   | YES       |
 | Explode                         | YES       | YES       | YES       | YES       |
 | Map access                      | YES       | YES       | YES       | YES       |
 | HTML forms                      | YES(1)    | YES       | YES       | YES       |
