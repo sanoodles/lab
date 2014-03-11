@@ -15,8 +15,8 @@ Table of contents:
 | OO: same superclass dif. object | n/a       | n/a       | YES       | n/a       |
 | Strictly triangular matrix      | YES       | YES       | YES       | YES       |
 
-Legend:
--------
+Legend
+------
 
 (1) Both client, and server versions. Server is Node.js & Express.
 * YES: Implemented. Without unit tests.
