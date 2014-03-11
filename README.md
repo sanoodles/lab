@@ -17,6 +17,7 @@ Table of contents:
 
 Legend:
 -------
+
 (1) Both client, and server versions. Server is Node.js & Express.
 * YES: Implemented. Without unit tests.
 * Tested: Implemented. With unit tests.
