@@ -16,7 +16,7 @@ Table of contents:
 | Strictly triangular matrix      | YES       | YES       | YES       | YES       |
 
 Legend:
-
+-------
 (1) Both client, and server versions. Server is Node.js & Express.
 * YES: Implemented. Without unit tests.
 * Tested: Implemented. With unit tests.
