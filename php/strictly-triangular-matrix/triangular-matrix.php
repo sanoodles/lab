@@ -63,4 +63,28 @@ echo "</pre>";
 
 echo "</td></tr></table>";
 
+if (!class_exists('PHPUnit_Framework_TestCase')) exit;
+
+class Test extends PHPUnit_Framework_TestCase
+{
+  public function testCreateFromMap()
+  {
+    global $map, $stm;
+    next($map); // skip first position
+    while (list($key, $value) = each($map)) {
+      $this->assertTrue(array_key_exists($key, $stm));
+    }
+  }
+
+  public function testFilter()
+  {
+    global $filteredStm;
+    foreach ($filteredStm as $rowKey => $row) {
+      foreach ($row as $colKey => $value) {
+        $this->assertTrue($value <= MAX_MATCH_DISTANCE);
+      }
+    }
+  }
+}
+
 ?>
