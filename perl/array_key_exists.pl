@@ -1,6 +1,7 @@
 use strict;
 use warnings;
 use Data::Dumper;
+use Test::More;
 
 sub title
 {
@@ -32,42 +33,40 @@ my %hashval1 = (
 
 my $res;
 
+
+
 print "Content-Type: text/html\n\n";
 print "<pre>";
 
 title("exists hashref1->{'k2'}");
 $res = exists $hashref1->{'k2'};
-var_dump($res);
-observation("If exists, returns number one");
+ok($res eq 1, "If exists, returns number one");
 
 title("exists hashref1->{'nonono'}");
 $res = exists $hashref1->{'nonono'};
-var_dump($res);
-observation("If does not exist, returns empty string");
+ok($res eq '', "If does not exist, returns empty string");
 
 title("exists hashval1->{'k2'}");
 $res = exists $%{hashval1}->{'k2'};
-var_dump($res);
+ok($res eq '', "The same over a hash value");
 observation("\$%{...} syntax to avoid 'Using a hash as a reference is deprecated'");
-observation("The same over a hash value");
 
 title("exists hashval1->{'nonono'}");
 $res = exists $%{hashval1}->{'nonono'};
-var_dump($res);
-observation("The same over a hash value");
+ok($res eq '', "The same over a hash value");
 
 title("shorter syntax like exists hashref1{k2}");
 $res = exists $$hashref1{k2};
-var_dump($res);
+ok($res eq 1);
 $res = exists $$hashref1{nonono};
-var_dump($res);
+ok($res eq '');
 $res = exists $hashval1{k2};
-var_dump($res);
+ok($res eq 1);
 $res = exists $hashval1{nonono};
-var_dump($res);
+ok($res eq '');
 observation("same");
 
-
+done_testing();
 
 print "</pre>";
 
