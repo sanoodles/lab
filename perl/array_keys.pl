@@ -1,6 +1,7 @@
 use strict;
 use warnings;
 use Data::Dumper;
+use Test::More;
 
 sub title
 {
@@ -45,23 +46,21 @@ var_dump(\%m1);
 
 title('"b" ~~ a1');
 my $res = "b" ~~ @a1;
-var_dump($res);
-observation("smart match string in array works");
+ok($res eq 1, "smart match string in array works");
 
 title('a1 ~~ m1');
  $res = @a1 ~~ [values %m1];
-var_dump($res);
-observation("smart match array in hash does not work");
+ok($res eq '', "smart match array in hash does not work");
 
 title('grep madness a1 in m1');
 ($res) = grep { $m1{$_} eq \@a1 } keys %m1;
-var_dump($res);
-observation("can find same array in hash");
+ok($res eq '5', "can find same array in hash");
 
 title('grep madness a2 in m1');
 ($res) = grep { $m1{$_} eq \@a2 } keys %m1;
-var_dump($res);
-observation("the hash actually stores the reference, so a different reference will not be a match");
+ok(!defined $res, "the hash actually stores the reference, so a different reference will not be a match");
+
+done_testing();
 
 print "</pre>";
 
