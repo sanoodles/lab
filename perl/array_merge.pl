@@ -2,6 +2,7 @@ use strict;
 use warnings;
 use Data::Dumper;
 use Hash::Merge qw( merge );
+use Test::More;
 
 sub title
 {
@@ -67,24 +68,72 @@ print "<pre>";
 
 title("(a1, a2)");
 my @merge = (@a1, @a2); # array and hash merge http://docstore.mik.ua/orelly/perl3/prog/ch09_04.htm
-var_dump(\@merge);
+ok(\@merge ~~ ['red', 'green', 'red', 'blue']);
 
 title("(a0, a1)");
 @merge = (@a0, @a1);
-var_dump(\@merge);
+is_deeply(\@merge, ['red', 'green']);
 
 title("(m1, m2)");
 my %merge = (%m1, %m2);
-var_dump(\%merge);
+is_deeply(\%merge, {
+          '1002' => {
+                      'c12' => 242,
+                      'c11' => 241
+                    },
+          '1001' => {
+                      'b12' => 222,
+                      'b11' => 121
+                    },
+          '1000' => {
+                      'a12' => 112,
+                      'a11' => 111
+                    },
+          'asdf' => {
+                      'asdf11' => 131,
+                      'asdf12' => 232
+                    }
+        });
 observation("numeric keys become string keys.");
 observation("string keys of the second dimension are overwritten.");
 
 title("Hash:Merge::merge(m1, m2) with RETAINMENT_PRECEDENT");
 Hash::Merge::set_behavior('RETAINMENT_PRECEDENT');
 %merge = %{ merge(\%m1, \%m2) };
-var_dump(\%merge);
+is_deeply(\%merge, {
+          '1001' => {
+                      'b12' => [
+                                 122,
+                                 222
+                               ],
+                      'b11' => [
+                                 121,
+                                 121
+                               ]
+                    },
+          '1002' => {
+                      'c12' => 242,
+                      'c11' => 241
+                    },
+          '1000' => {
+                      'a12' => 112,
+                      'a11' => 111
+                    },
+          'asdf' => {
+                      'asdf11' => [
+                                    131,
+                                    131
+                                  ],
+                      'asdf12' => [
+                                    132,
+                                    232
+                                  ]
+                    }
+        });
 observation("numeric keys become string keys.");
 observation("existing keys are merged.");
+
+done_testing();
 
 print "</pre>";
 
