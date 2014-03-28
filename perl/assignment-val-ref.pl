@@ -4,6 +4,7 @@ use Data::Dumper;
 use File::Basename;
 use lib dirname(__FILE__);
 use C1;
+use Test::More;
 
 sub title
 {
@@ -35,7 +36,7 @@ my @arr1 = ($int1);
 var_dump(\@arr1);
 $int1 = 5;
 var_dump($int1);
-var_dump(\@arr1);
+is_deeply(\@arr1, [3]);
 observation("does not change <-> by value");
 
 title("string");
@@ -45,7 +46,7 @@ var_dump($str1);
 var_dump(\@arr1);
 $str1 = "b";
 var_dump($str1);
-var_dump(\@arr1);
+is_deeply(\@arr1, ['a']);
 observation("does not change <-> by value");
 
 title("array");
@@ -55,7 +56,7 @@ var_dump(\@arr2);
 var_dump(\@arr1);
 push(@arr2, "b");
 var_dump(\@arr2);
-var_dump(\@arr1);
+is_deeply(\@arr1, ['a']);
 observation("assigning array between parentheses has no effect");
 observation("does not change <-> by value");
 
@@ -66,7 +67,7 @@ var_dump(\@arr2);
 var_dump(\@arr1);
 push(@arr2, "b");
 var_dump(\@arr2);
-var_dump(\@arr1);
+is_deeply(\@arr1, [['a', 'b']]);
 observation("assigning array reference between parentheses nests it into array");
 observation("changes <-> by reference");
 
@@ -77,7 +78,7 @@ var_dump(\%aar1);
 var_dump(\@arr1);
 $aar1{"k1"} = "b";
 var_dump(\%aar1);
-var_dump(\@arr1);
+is_deeply(\@arr1, ['k1', 'a']);
 observation("assigning hash between parenthesis flattens it to an array");
 observation("does not change <-> by value");
 
@@ -88,7 +89,7 @@ var_dump(\%aar1);
 var_dump(\@arr1);
 $aar1{"k1"} = "b";
 var_dump(\%aar1);
-var_dump(\@arr1);
+is_deeply(\@arr1, [{'k1' => 'b'}]);
 observation("assigning hash reference between parenthesis nests it into array");
 observation("changes <-> by reference");
 
@@ -99,7 +100,7 @@ var_dump($obj1);
 var_dump(\@arr1);
 $obj1 = new C1("b");
 var_dump($obj1);
-var_dump(\@arr1);
+is_deeply(\@arr1, [new C1("a")]);
 observation("does not change");
 
 title("modified object");
@@ -109,8 +110,10 @@ var_dump($obj1);
 var_dump(\@arr1);
 $obj1->setA1("b");
 var_dump($obj1);
-var_dump(\@arr1);
+is_deeply(\@arr1, [new C1("b")]);
 observation("changes");
+
+done_testing();
 
 print "</pre>";
 
