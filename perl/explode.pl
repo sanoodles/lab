@@ -1,6 +1,7 @@
 use strict;
 use warnings;
 use Data::Dumper;
+use Test::More;
 
 sub title
 {
@@ -35,27 +36,29 @@ print "<pre>";
 
 title('vanilla split');
 my @res = split(",", $s1);
-var_dump(\@res);
+is_deeply(\@res, ['asdf', 'qwer']);
 
 title('split empty string');
 @res = split(",", $s0);
-var_dump(\@res);
+is_deeply(\@res, []);
 observation("no positions are returned.");
 
 title('split on delimiter at the end');
 @res = split(",", $s2);
-var_dump(\@res);
+is_deeply(\@res, ['asdf']);
 observation("no ending position is returned.");
 
 title('split on delimiter at the beginning');
 @res = split(",", $s3);
-var_dump(\@res);
+is_deeply(\@res, ['', 'qwer']);
 observation("initial position, with an empty string, is returned.");
 
 title('split on no delimiter');
 @res = split(",", $s4);
-var_dump(\@res);
+is_deeply(\@res, ['asdf']);
 observation("");
+
+done_testing();
 
 print "</pre>";
 
