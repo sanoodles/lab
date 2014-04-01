@@ -5,6 +5,7 @@ use Data::Dumper;
 use File::Basename;
 use lib dirname(__FILE__);
 use StrictlyTriangularMatrix;
+use Test::More;
 
 sub title
 {
@@ -59,14 +60,32 @@ print "Content-Type: text/html\n\n";
 print "<table><tr><td><pre>";
 
 title('Strictly triangular matrix');
-my $stm = StrictlyTriangularMatrix::createFromMap($map, 'main::some_aggregation');
+my $stm = StrictlyTriangularMatrix::createFromMap($map, \&some_aggregation); # http://perldoc.perl.org/perlref.html
 var_dump($stm);
+my $isFirstElement = 1;
+foreach my $key (keys $map)
+{
+  if ($isFirstElement) {
+    $isFirstElement = 0;
+    next;
+  }
+  ok(exists $stm->{$key});
+}
 
 print "</pre></td><td style='padding-left: 2em; vertical-align: top;'><pre>";
 
 title('Filtered strictly triangular matrix');
 my $filteredStm = StrictlyTriangularMatrix::filter($stm, getIsDistanceAMatchFunction($MAX_MATCH_DISTANCE));
 var_dump($filteredStm);
+while ((my $ki, my $row) = each $filteredStm)
+{
+  while ((my $kj, my $v) = each %{$row})
+  {
+    ok($v <= $MAX_MATCH_DISTANCE);
+  }
+}
+
+done_testing();
 
 print "</pre></td></tr></table>";
 

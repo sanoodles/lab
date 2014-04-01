@@ -9,6 +9,9 @@ preserved.
 =cut
 package StrictlyTriangularMatrix;
 
+use strict;
+use warnings;
+
 sub createFromMap {
   my $map = shift;
   my $aggregationFunction = shift;
@@ -22,7 +25,7 @@ sub createFromMap {
       {
         last;
       }
-      $res{$ki}{$kj} = &$aggregationFunction($map{$ki}, $map{$kj});
+      $res{$ki}{$kj} = &$aggregationFunction($map->{$ki}, $map->{$kj});
     }
   }
   return \%res;
@@ -33,9 +36,9 @@ sub filter {
   my $testFunction = shift;
 
   my %res;
-  while (($ki, $row) = each $STM)
+  while ((my $ki, my $row) = each $STM)
   {
-    while (($kj, $v) = each %{$row})
+    while ((my $kj, my $v) = each %{$row})
     {
       if ( $ki eq $kj )
       {
