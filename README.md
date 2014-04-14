@@ -5,7 +5,7 @@ Table of contents:
 | Experiment                      | JS        | Perl      | PHP       | Python    |
 | ---------------------------     |:---------:| ---------:| ---------:| ---------:|
 | Assignment val/ref              | YES       | Tested    | Tested    | YES       |
-| Array key exists                | YES       | Tested    | Tested    | YES       |
+| Array key exists                | YES       | Tested    | Tested    | Tested    |
 | Array merge                     | YES       | Tested    | Tested    | YES       |
 | Array keys                      | YES       | Tested    | Tested    | YES       |
 | Explode                         | YES       | Tested    | Tested    | YES       |
@@ -22,5 +22,6 @@ Legend
 * Tested: Implemented, with unit tests.
   * For Perl: Test::More
   * For PHP: PHPUnit
+  * For Python: unittest
 * (1): Both client, and server versions. Server is Node.js & Express.
 
