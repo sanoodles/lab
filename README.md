@@ -7,7 +7,7 @@ Table of contents:
 | Assignment val/ref              | YES       | Tested    | Tested    | YES       |
 | Array key exists                | YES       | Tested    | Tested    | Tested    |
 | Array merge                     | YES       | Tested    | Tested    | YES       |
-| Array keys                      | YES       | Tested    | Tested    | YES       |
+| Array keys                      | YES       | Tested    | Tested    | Tested    |
 | Explode                         | YES       | Tested    | Tested    | YES       |
 | Map access                      | YES       | Tested    | Tested    | YES       |
 | HTML forms                      | YES(1)    | YES       | YES       | YES       |
