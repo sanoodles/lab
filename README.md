@@ -8,7 +8,7 @@ Table of contents:
 | Array key exists                | YES       | Tested    | Tested    | Tested    |
 | Array merge                     | YES       | Tested    | Tested    | Tested    |
 | Array keys                      | YES       | Tested    | Tested    | Tested    |
-| Explode                         | YES       | Tested    | Tested    | YES       |
+| Explode                         | YES       | Tested    | Tested    | Tested    |
 | Map access                      | YES       | Tested    | Tested    | YES       |
 | HTML forms                      | YES(1)    | YES       | YES       | YES       |
 | OO: same class dif. object      | n/a       | n/a       | YES       | n/a       |
