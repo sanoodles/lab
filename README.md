@@ -13,7 +13,7 @@ Table of contents:
 | HTML forms                      | YES(1)    | YES       | YES       | YES       |
 | OO: same class dif. object      | n/a       | n/a       | YES       | n/a       |
 | OO: same superclass dif. object | n/a       | n/a       | YES       | n/a       |
-| Strictly triangular matrix      | YES       | Tested    | Tested    | YES       |
+| Strictly triangular matrix      | YES       | Tested    | Tested    | Tested    |
 
 Legend
 ------
