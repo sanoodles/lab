@@ -30,8 +30,10 @@ def application(environ, start_response):
     var_dump(a[0])
 
     title("a[0][3]")
-    # var_dump(a[0][3])
-    observation("An exception and this error would be generated: <q>KeyError: 3</q>")
+    try:
+      var_dump(a[0][3])
+    except KeyError as e:
+      var_dump("Exception KeyError: " + str(e))
 
     title("a[0][a[0].keys()[0]] to access the first value of a dictionary without knowing the key")
     var_dump(a[0][a[0].keys()[0]])
