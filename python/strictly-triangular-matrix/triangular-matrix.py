@@ -4,6 +4,7 @@ sys.path.append(os.path.dirname(__file__))
 import json
 import random
 from StrictlyTriangularMatrix import StrictlyTriangularMatrix
+import unittest
 
 
 
@@ -55,4 +56,24 @@ def application(environ, start_response):
     response_headers = [('Content-type', 'text/html')]
     start_response(status, response_headers)
     return o
+
+class UnitTests(unittest.TestCase):
+    def testA(self):
+      stm = StrictlyTriangularMatrix.createFromDict(dic, some_aggregation)
+      isFirstElement = True
+      for key in dic.keys():
+        if (isFirstElement):
+          isFirstElement = False
+          continue
+        self.assertTrue(key in stm)
+
+    def testB(self):
+      stm = StrictlyTriangularMatrix.createFromDict(dic, some_aggregation)
+      filteredStm = StrictlyTriangularMatrix.filter(stm, getDistanceIsAMatchFunction(MAX_MATCH_DISTANCE))
+      for ki, row in filteredStm.iteritems():
+        for kj, v, in row.iteritems():
+          self.assertLessEqual(v, MAX_MATCH_DISTANCE)
+
+if __name__  == '__main__':
+    unittest.main() 
 

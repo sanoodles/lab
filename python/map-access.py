@@ -53,6 +53,7 @@ class UnitTests(unittest.TestCase):
     def testC(self):
       with self.assertRaises(KeyError):
         a[0][3]
+
     def testD(self):
       self.assertEqual(a[0][a[0].keys()[0]], 10)
 
