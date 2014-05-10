@@ -3,8 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>array_key_exists.html</title>
+    <link rel="stylesheet" href="qunit.css">
+    <script src="qunit.js"></script>
   </head>
   <body>
     <script src="array_key_exists.js"></script>
+    <script>
+      test("vanilla has own property", function () {
+        ok(vanillaHasOwnProperty());
+      });
+    </script>
+    <div id="qunit"></div>
   </body>
 </html>

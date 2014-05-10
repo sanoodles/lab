@@ -5,7 +5,7 @@ Table of contents:
 | Experiment                      | JS        | Perl      | PHP       | Python    |
 | ---------------------------     |:---------:| ---------:| ---------:| ---------:|
 | Assignment val/ref              | YES       | Tested    | Tested    | Tested    |
-| Array key exists                | YES       | Tested    | Tested    | Tested    |
+| Array key exists                | Tested    | Tested    | Tested    | Tested    |
 | Array merge                     | YES       | Tested    | Tested    | Tested    |
 | Array keys                      | YES       | Tested    | Tested    | Tested    |
 | Explode                         | YES       | Tested    | Tested    | Tested    |
@@ -20,6 +20,7 @@ Legend
 
 * YES: Implemented, without unit tests.
 * Tested: Implemented, with unit tests.
+  * For JS: QUnit
   * For Perl: Test::More
   * For PHP: PHPUnit
   * For Python: unittest
