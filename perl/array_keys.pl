@@ -49,7 +49,7 @@ my $res = "b" ~~ @a1;
 ok($res eq 1, "smart match string in array works");
 
 title('a1 ~~ m1');
- $res = @a1 ~~ [values %m1];
+$res = @a1 ~~ [values %m1];
 ok($res eq '', "smart match array in hash does not work");
 
 title('grep madness a1 in m1');
@@ -63,6 +63,20 @@ ok(!defined $res, "the hash actually stores the reference, so a different refere
 title('grep madness a3 in m1');
 ($res) = grep { $m1{$_} eq \@a3 } keys %m1;
 ok(!defined $res, "different array with different values is a miss. of course.");
+
+@a1 = reverse(@a1);
+title('after reversing a1');
+
+title('a1');
+var_dump(\@a1);
+
+title('m1');
+var_dump(\%m1);
+
+title('grep madness a1 in m1');
+($res) = grep { $m1{$_} eq \@a1 } keys %m1;
+var_dump($res);
+ok($res eq '5', "can find reversed array in hash because it works by reference");
 
 
 
