@@ -60,6 +60,12 @@ title('grep madness a2 in m1');
 ($res) = grep { $m1{$_} eq \@a2 } keys %m1;
 ok(!defined $res, "the hash actually stores the reference, so a different reference will not be a match");
 
+title('grep madness a3 in m1');
+($res) = grep { $m1{$_} eq \@a3 } keys %m1;
+ok(!defined $res, "different array with different values is a miss. of course.");
+
+
+
 done_testing();
 
 print "</pre>";
