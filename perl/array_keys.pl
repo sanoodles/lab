@@ -72,6 +72,7 @@ var_dump(\@a1);
 
 title('m1');
 var_dump(\%m1);
+observation("value appears changed in the matrix as well. works by reference.")
 
 title('grep madness a1 in m1');
 ($res) = grep { $m1{$_} eq \@a1 } keys %m1;

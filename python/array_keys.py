@@ -79,6 +79,7 @@ def application(environ, start_response):
     observation("different array with different values is evaluated as a miss. of course.")
 
     a1.reverse()
+    title('after reversing a1');
 
     title("a1")
     var_dump(a1)
