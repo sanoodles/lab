@@ -16,49 +16,83 @@ m1[3] = ["dummy1", "dummy2"];
 m1[5] = a1;
 
 
+function title(text) {
+  console.log(".");
+  console.log(text);
+}
+
+function dump(v) {
+  console.log(v);
+}
+
+function observation(text) {
+  console.log(text);  
+}
+
+function vanillaIndexOf() {
+  return a1.indexOf('b');
+}
+
+function canFindSameArrayInMatrix() {
+  return m1.indexOf(a1);
+}
+
+function diffArrSameValues() {
+  return m1.indexOf(a2);
+}
+
+function diffArrDiffValues() {
+  return m1.indexOf(a3);
+}
+
+function diffOrderOfElements() {
+  return m1.indexOf(a4);
+}
+
+function findArrayAfterReverse() {
+ return m1.indexOf(a1);
+}
 
 
-console.log("-");
-console.log("a1");
-console.log(a1);
 
-console.log("-");
-console.log("m1");
-console.log(m1);
+title("a1");
+dump(a1);
 
-console.log("-");
-console.log("a1.indexOf('b')");
-console.log(a1.indexOf('b'));
-console.log("vanilla indexOf");
+title("m1");
+dump(m1);
 
-console.log("-");
-console.log("m1.indexOf(a1)");
-console.log(m1.indexOf(a1));
-console.log("can find same array in matrix");
+title("a1.indexOf('b')");
+dump(vanillaIndexOf());
+observation("vanilla indexOf");
 
-console.log("-");
-console.log("m1.indexOf(a2)");
-console.log(m1.indexOf(a2));
-console.log("different array with same values is evaluated as a miss. so it works by reference.");
+title("m1.indexOf(a1)");
+dump(canFindSameArrayInMatrix());
+observation("can find same array in matrix");
 
-console.log("-");
-console.log("m1.indexOf(a3)");
-console.log(m1.indexOf(a3));
-console.log("different array with different values is evaluated as a miss. of course.");
+title("m1.indexOf(a2)");
+dump(diffArrSameValues());
+observation("different array with same values is evaluated as a miss. so it works by reference.");
+
+title("m1.indexOf(a3)");
+dump(diffArrDiffValues());
+observation("different array with different values is evaluated as a miss. of course.");
+
+title("m1.indexOf(a4)");
+dump(diffOrderOfElements());
+observation("different order of elements is evaluated as a miss.");
 
 a1.reverse();
+title("after a1.reverse");
 
-console.log("-");
-console.log("a1");
-console.log(a1);
+title("a1");
+dump(a1);
 
-console.log("-");
-console.log("m1");
-console.log(m1);
-console.log("value appears changed in the matrix as well. works by reference.");
+title("m1");
+dump(m1);
+observation("value appears changed in the matrix as well. works by reference.");
 
-console.log("-");
-console.log("m1.indexOf(a1)");
-console.log(m1.indexOf(a1));
-console.log("the array is also found.");
+title("m1.indexOf(a1)");
+dump(findArrayAfterReverse());
+observation("can find reversed array in matrix, since it works by reference.");
+
 
