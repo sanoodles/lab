@@ -3,8 +3,31 @@
   <head>
     <meta charset="utf-8">
     <title>array_keys.html</title>
+    <link rel="stylesheet" href="qunit.css">
   </head>
   <body>
+    <div id="qunit"></div>
     <script src="array_keys.js"></script>
+    <script src="qunit.js"></script>
+    <script>
+      test("vanilla index of", function () {
+        strictEqual(vanillaIndexOf(), 1);
+      });
+      test("can find same array in matrix", function () {
+        strictEqual(canFindSameArrayInMatrix(), 5);
+      });
+      test("different array with same values is evaluated as a miss", function () {
+        strictEqual(diffArrSameValues(), -1);
+      });
+      test("different array with different values is evaluated as a miss", function () {
+        strictEqual(diffArrDiffValues(), -1);
+      });
+      test("different order of elements is evaluated as a miss", function () {
+        strictEqual(diffOrderOfElements(), -1);
+      });
+      test("can find reversed array in matrix", function () {
+        strictEqual(findArrayAfterReverse(), 5);
+      });
+    </script>
   </body>
 </html>

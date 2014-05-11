@@ -95,4 +95,5 @@ title("m1.indexOf(a1)");
 dump(findArrayAfterReverse());
 observation("can find reversed array in matrix, since it works by reference.");
 
+a1.reverse(); // leave the things as you found them
 
