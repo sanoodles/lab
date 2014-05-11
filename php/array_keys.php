@@ -36,20 +36,6 @@ var_export($a1);
 title('$m1');
 var_export($m1);
 
-$a1 = array_reverse($a1);
-
-title('after array_reverse($a1)');
-
-title('$a1');
-var_export($a1);
-
-title('$m1');
-var_export($m1);
-observation('a1 is not reversed in m1. so a1 was put into m1 by value.');
-
-$a1 = array_reverse($a1);
-title('array_reverse($a1) again');
-
 title('$a1');
 var_export($a1);
 
@@ -77,6 +63,23 @@ title('array_keys($m1, $a4)');
 $res5 = array_keys($m1, $a4);
 var_export($res5);
 observation('different order of elements is evaluated as a miss.');
+
+$a1 = array_reverse($a1);
+title('after array_reverse($a1)');
+
+title('$a1');
+var_export($a1);
+
+title('$m1');
+var_export($m1);
+observation('a1 is not reversed in m1. so a1 was put into m1 by value.');
+
+title('array_keys($m1, $a1)');
+$res6 = array_keys($m1, $a1);
+var_export($res6);
+observation('can not find reversed array in matrix, since it works by value.');
+
+
 
 echo "</pre>";
 
@@ -112,6 +115,12 @@ class Test extends PHPUnit_Framework_TestCase
   {
     global $res5;
     $this->assertEquals([], $res5);
+  }
+
+  public function test6()
+  {
+    global $res6;
+    $this->assertEquals([], $res6);
   }
 
 }
