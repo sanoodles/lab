@@ -6,7 +6,7 @@ Table of contents:
 | ---------------------------     |:---------:| ---------:| ---------:| ---------:|
 | Assignment val/ref              | YES       | Tested    | Tested    | Tested    |
 | Array key exists                | Tested    | Tested    | Tested    | Tested    |
-| Array merge                     | YES       | Tested    | Tested    | Tested    |
+| Array merge                     | Tested    | Tested    | Tested    | Tested    |
 | Array keys                      | Tested    | Tested    | Tested    | Tested    |
 | Explode                         | YES       | Tested    | Tested    | Tested    |
 | Map access                      | YES       | Tested    | Tested    | Tested    |

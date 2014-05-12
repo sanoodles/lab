@@ -3,8 +3,59 @@
   <head>
     <meta charset="utf-8">
     <title>array_merge.html</title>
+    <link rel="stylesheet" href="qunit.css">
   </head>
   <body>
+    <div id="qunit"></div>
     <script src="array_merge.js"></script>
+    <script src="qunit.js"></script>
+    <script>
+      test("a1 concat a2", function () {
+        deepEqual(merge1, ["red", "green", "red", "blue"]);
+      });
+      test("a0 concat a1", function () {
+        deepEqual(merge2, ["red", "green"]);
+      });
+      test("object merge m1 m2", function () {
+        deepEqual(merge3, {
+            1000: {
+                "a11": 111,
+                "a12": 112
+            },
+            1001: {
+                "b11": 121,
+                "b12": 222
+            },
+            "asdf": {
+                "asdf11": 131,
+                "asdf12": 232
+            },
+            1002: {
+                "c11": 241,
+                "c12": 242
+            },
+        });
+      });
+      test("object merge recursive m1 m2", function () {
+        deepEqual(merge4, {
+            1000: {
+                "a11": 111,
+                "a12": 112
+            },
+            1001: {
+                "b11": [121, 121],
+                "b12": [122, 222]
+            },
+            "asdf": {
+                "asdf11": [131, 131],
+                "asdf12": [132, 232]
+            },
+            1002: {
+                "c11": 241,
+                "c12": 242
+            }, 
+        });
+      });
+    </script>
   </body>
 </html>

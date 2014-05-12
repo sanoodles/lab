@@ -78,28 +78,38 @@ m2 = {
     },
 };
 
+function title(text) {
+  console.log(".");
+  console.log(text);
+}
+
+function dump(v) {
+  console.log(v);
+}
+
+function observation(text) {
+  console.log(text);  
+}
 
 
-console.log("-");
-console.log("a1.concat(a2)");
-merge = a1.concat(a2);
-console.log(merge);
 
-console.log("-");
-console.log("a0.concat(a1)");
-merge = a0.concat(a1);
-console.log(merge);
+title("a1.concat(a2)");
+var merge1 = a1.concat(a2);
+dump(merge1);
 
-console.log("-");
-console.log("object_merge(m1, m2)");
-merge = object_merge(m1, m2);
-console.log(merge);
-console.log("numeric keys are preserved.");
-console.log("existing keys are overwritten.");
+title("a0.concat(a1)");
+var merge2 = a0.concat(a1);
+dump(merge2);
 
-console.log("-");
-console.log("object_merge_recursive(m1, m2)");
-merge = object_merge_recursive(m1, m2);
-console.log(merge);
-console.log("numeric keys are preserved.");
-console.log("existing keys are merged.");
+title("object_merge(m1, m2)");
+var merge3 = object_merge(m1, m2);
+dump(merge3);
+observation("numeric keys are preserved.");
+observation("existing keys are overwritten.");
+
+title("object_merge_recursive(m1, m2)");
+var merge4 = object_merge_recursive(m1, m2);
+dump(merge4);
+observation("numeric keys are preserved.");
+observation("existing keys are merged.");
+
