@@ -3,8 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>assignment-val-ref.html</title>
+    <link rel="stylesheet" href="qunit.css">
   </head>
   <body>
+    <div id="qunit"></div>
     <script src="assignment-val-ref.js"></script>
+    <script src="qunit.js"></script>
+    <script>
+      test("int", function () {
+        deepEqual(arr1, [3], "does not change <-> by value");
+      });
+      test("string", function () {
+        deepEqual(arr2, ["a"], "does not change <-> by value");
+      });
+      test("array", function () {
+        deepEqual(arr4, [["a", "b"]], "changes <-> by reference");
+      });
+      test("map/object", function () {
+        deepEqual(arr5, [{"k1": "b"}], "changes <-> by reference");
+      });
+  </script> 
   </body>
 </html>
