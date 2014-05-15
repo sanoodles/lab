@@ -3,8 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title>explode.html</title>
+    <link rel="stylesheet" href="qunit.css">
   </head>
   <body>
+    <div id="qunit"></div>
     <script src="explode.js"></script>
+    <script src="qunit.js"></script>
+    <script>
+      test("vanilla split", function () {
+        deepEqual(res1, ["asdf", "qwer"]);
+      });
+      test("split empty string", function () {
+        deepEqual(res2, [""]);
+      });
+      test("explode on delimiter at the end", function () {
+        deepEqual(res3, ["asdf", ""]);
+      });
+      test("explode on delimiter at the beginning", function () {
+        deepEqual(res4, ["", "qwer"]);
+      });
+      test("explode on no delimiter", function () {
+        deepEqual(res5, ["asdf"]);
+      });
+   </script>
   </body>
 </html>

@@ -21,22 +21,22 @@ var s3 = ",qwer";
 var s4 = "asdf";
 
 title('vanilla split');
-var res = s1.split(",");
-var_export(res);
+var res1 = s1.split(",");
+var_export(res1);
 
 title('split empty string');
-res = s0.split(",");
-var_export(res);
+var res2 = s0.split(",");
+var_export(res2);
 
 title('explode on delimiter at the end');
-res = s2.split(",");
-var_export(res);
+var res3 = s2.split(",");
+var_export(res3);
 
 title('explode on delimiter at the beginning');
-res = s3.split(",");
-var_export(res);
+var res4 = s3.split(",");
+var_export(res4);
 
 title('explode on no delimiter');
-res = s4.split(",");
-var_export(res);
+var res5 = s4.split(",");
+var_export(res5);
 
