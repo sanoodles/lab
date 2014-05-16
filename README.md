@@ -9,7 +9,7 @@ Table of contents:
 | Array merge                     | Tested    | Tested    | Tested    | Tested    |
 | Array keys                      | Tested    | Tested    | Tested    | Tested    |
 | Explode                         | Tested    | Tested    | Tested    | Tested    |
-| Map access                      | YES       | Tested    | Tested    | Tested    |
+| Map access                      | Tested    | Tested    | Tested    | Tested    |
 | HTML forms                      | YES(1)    | YES       | YES       | YES       |
 | OO: same class dif. object      | n/a       | n/a       | YES       | n/a       |
 | OO: same superclass dif. object | n/a       | n/a       | YES       | n/a       |

@@ -3,8 +3,26 @@
   <head>
     <meta charset="utf-8">
     <title>map-access.html</title>
+    <link rel="stylesheet" href="qunit.css">
   </head>
   <body>
+    <div id="qunit"></div>
     <script src="map-access.js"></script>
+    <script src="qunit.js"></script>
+    <script>
+      test("a", function () {
+        deepEqual(a, [{"a": 10, "b": 20}]);
+      });
+      test("a[0]", function () {
+        deepEqual(a[0], {"a": 10, "b": 20});
+      });
+      test("a[0][3]", function () {
+        strictEqual(a[0][3], undefined);
+      });
+      test("[0][Object.keys(a[0])[0]] to access the first property of an Object without knowing the key", 
+          function () {
+        strictEqual(a[0][Object.keys(a[0])[0]], 10);
+      });
+    </script>
   </body>
 </html>
