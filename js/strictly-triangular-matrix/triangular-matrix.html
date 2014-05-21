@@ -3,10 +3,35 @@
   <head>
     <meta charset="utf-8">
     <title>triangular-matrix.html</title>
-    <script src="StrictlyTriangularMatrix.js"></script>
-    <script src="triangular-matrix.js"></script>
+    <link rel="stylesheet" href="../qunit.css">
   </head>
   <body>
+    <div id="qunit"></div>
+    <script src="StrictlyTriangularMatrix.js"></script>
+    <script src="triangular-matrix.js"></script>
+    <script src="../qunit.js"></script>
+    <script>
+      test("strictly triangular matrix", function () {
+        var stm = StrictlyTriangularMatrix.createFromMap(map, some_aggregation);
+        var isFirstElement = true;
+        for (var key in map) {
+          if (isFirstElement) {
+            isFirstElement = false;
+            continue;
+          }
+          ok(key in stm);
+        }
+      });
+      test("filtered strictly triangular matrix", function () {
+        var stm = StrictlyTriangularMatrix.createFromMap(map, some_aggregation);
+        var filteredStm = StrictlyTriangularMatrix.filter(stm, getDistanceIsAMatchFunction(MAX_MATCH_DISTANCE));
+        for (var ki in filteredStm) {
+          for (var kj in filteredStm[ki]) {
+            ok(filteredStm[ki][kj] <= MAX_MATCH_DISTANCE);
+          }
+        }
+      });
+    </script>
   </body>
 </html>
 
