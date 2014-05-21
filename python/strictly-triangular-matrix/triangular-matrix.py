@@ -71,7 +71,7 @@ class UnitTests(unittest.TestCase):
       stm = StrictlyTriangularMatrix.createFromDict(dic, some_aggregation)
       filteredStm = StrictlyTriangularMatrix.filter(stm, getDistanceIsAMatchFunction(MAX_MATCH_DISTANCE))
       for ki, row in filteredStm.iteritems():
-        for kj, v, in row.iteritems():
+        for kj, v in row.iteritems():
           self.assertLessEqual(v, MAX_MATCH_DISTANCE)
 
 if __name__  == '__main__':
