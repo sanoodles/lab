@@ -14,6 +14,7 @@ Table of contents:
 | OO: same class dif. object      | n/a       | n/a       | YES       | n/a       |
 | OO: same superclass dif. object | n/a       | n/a       | YES       | n/a       |
 | Strictly triangular matrix      | Tested    | Tested    | Tested    | Tested    |
+| Profiling: no DB                |           |           | YES       |           |
 
 Legend
 ------
@@ -25,4 +26,6 @@ Legend
   * For PHP: PHPUnit
   * For Python: unittest
 * (1): Both client, and server versions. Server is Node.js & Express.
+* Profiling
+  * For PHP: Xhprof
 
