@@ -30,4 +30,3 @@ top_tier();
 
 page_footer("no-db");
 ?>
-

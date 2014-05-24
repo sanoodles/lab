@@ -22,4 +22,3 @@ function page_footer($profiling_name) {
 }
 
 ?>
-
