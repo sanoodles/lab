@@ -16,7 +16,10 @@ function page_footer($profiling_name) {
   $xhprof_runs = new XHProfRuns_Default();
   $run_id = $xhprof_runs->save_run($xhprof_data, $profiling_name);
 
-  echo '<a href="http://localhost/php/profiling/xhprof_html/index.php?run=' . $run_id . '&source=' . $profiling_name . '">Results</a>';
+  $href_prefix = "http://localhost/php/profiling/xhprof_html/index.php";
+  $href_sufix = "?run=$run_id&source=$profiling_name";
+  echo '<a href="' . $href_prefix . $href_sufix . '">Results</a>';
 }
 
 ?>
+
