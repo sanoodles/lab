@@ -1,5 +1,9 @@
 <?php
-require "page-header.php";
+error_reporting(E_ALL);
+
+require "page.php";
+
+page_head();
 
 function light_loop() {
   for ($i = 0; $i <= 10 * 1000; $i++) {
@@ -24,6 +28,6 @@ function top_tier() {
 
 top_tier();
 
-require "page-footer.php";
+page_footer("no-db");
 ?>
 
