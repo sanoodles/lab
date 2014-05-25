@@ -1,6 +1,9 @@
 package C1;
-sub new 
-{
+
+use strict;
+use warnings;
+
+sub new  {
   my $class = shift;
   my $self = {
       _a1 => shift
@@ -10,8 +13,10 @@ sub new
   bless $self, $class;
   return $self;
 }
+
 sub setA1 {
     my ( $self, $a1 ) = @_;
     $self->{_a1} = $a1;
 }
+
 1;
