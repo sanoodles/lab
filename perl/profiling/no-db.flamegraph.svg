@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" width="1200" height="130" onload="init(evt)" viewBox="0 0 1200 130" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+	<linearGradient id="background" y1="0" y2="1" x1="0" x2="0">
+		<stop stop-color="#eeeeee" offset="5%"/>
+		<stop stop-color="#eeeeb0" offset="95%"/>
+	</linearGradient>
+</defs>
+<style type="text/css">
+	.func_g:hover { stroke:black; stroke-width:0.5; }
+</style>
+<script type="text/ecmascript">
+<![CDATA[
+	var details;
+	function init(evt) { details = document.getElementById("details").firstChild; }
+	function s(info) { details.nodeValue = "sub " + info; }
+	function c() { details.nodeValue = ' '; }
+]]>
+</script>
+<rect x="0.0" y="0" width="1200.0" height="130.0" fill="url(#background)"/>
+<text text-anchor="middle" x="600" y="24" font-size="17" font-family="Verdana" fill="rgb(0,0,0)">Flame Graph</text>
+<text text-anchor="" x="10" y="113" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" id="details"> </text>
+<g class="func_g" onmouseover="s('main::heavy_loop (15,445 microseconds, 60.29%)')" onmouseout="c()">
+<title>main::heavy_loop (15,445 microseconds, 60.29%)</title><a xlink:href="profiling-no-db-pl-1-line.html#11" target="_top"><rect x="310.5" y="33" width="711.4" height="15.0" fill="rgb(211,27,27)" rx="2" ry="2"/>
+<text text-anchor="" x="313.460857309306" y="43.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)">main::heavy_loop</text>
+</a>
+</g>
+<g class="func_g" onmouseover="s('main::mid_tier (17,691 microseconds, 69.06%)')" onmouseout="c()">
+<title>main::mid_tier (17,691 microseconds, 69.06%)</title><a xlink:href="profiling-no-db-pl-1-line.html#18" target="_top"><rect x="309.2" y="49" width="814.9" height="15.0" fill="rgb(209,8,1)" rx="2" ry="2"/>
+<text text-anchor="" x="312.22644000248" y="59.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)">main::mid_tier</text>
+</a>
+</g>
+<g class="func_g" onmouseover="s('warnings::CORE:regcomp (41 microseconds, 0.16%)')" onmouseout="c()">
+<title>warnings::CORE:regcomp (41 microseconds, 0.16%)</title><a xlink:href="warnings-pm-3-line.html#warnings__CORE_regcomp" target="_top"><rect x="304.0" y="49" width="1.9" height="15.0" fill="rgb(229,181,50)" rx="2" ry="2"/>
+</a>
+</g>
+<g class="func_g" onmouseover="s('all (25,619 microseconds, 100%)')" onmouseout="c()">
+<title>all (25,619 microseconds, 100%)</title><rect x="10.0" y="81" width="1180.0" height="15.0" fill="rgb(216,205,49)" rx="2" ry="2"/>
+<text text-anchor="" x="13" y="91.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"/>
+</g>
+<g class="func_g" onmouseover="s('warnings::CORE:match (13 microseconds, 0.05%)')" onmouseout="c()">
+<title>warnings::CORE:match (13 microseconds, 0.05%)</title><a xlink:href="warnings-pm-3-line.html#warnings__CORE_match" target="_top"><rect x="303.4" y="49" width="0.6" height="15.0" fill="rgb(223,94,53)" rx="2" ry="2"/>
+</a>
+</g>
+<g class="func_g" onmouseover="s('strict::bits (24 microseconds, 0.09%)')" onmouseout="c()">
+<title>strict::bits (24 microseconds, 0.09%)</title><a xlink:href="strict-pm-2-line.html#23" target="_top"><rect x="53.4" y="33" width="1.1" height="15.0" fill="rgb(222,88,48)" rx="2" ry="2"/>
+</a>
+</g>
+<g class="func_g" onmouseover="s('warnings::import (20 microseconds, 0.08%)')" onmouseout="c()">
+<title>warnings::import (20 microseconds, 0.08%)</title><a xlink:href="warnings-pm-3-line.html#256" target="_top"><rect x="305.9" y="49" width="0.9" height="15.0" fill="rgb(216,38,18)" rx="2" ry="2"/>
+</a>
+</g>
+<g class="func_g" onmouseover="s('main::top_tier (17,698 microseconds, 69.08%)')" onmouseout="c()">
+<title>main::top_tier (17,698 microseconds, 69.08%)</title><a xlink:href="profiling-no-db-pl-1-line.html#23" target="_top"><rect x="308.9" y="65" width="815.2" height="15.0" fill="rgb(238,138,39)" rx="2" ry="2"/>
+<text text-anchor="" x="311.871775328503" y="75.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)">main::top_tier</text>
+</a>
+</g>
+<g class="func_g" onmouseover="s('main::CORE:print (44 microseconds, 0.17%)')" onmouseout="c()">
+<title>main::CORE:print (44 microseconds, 0.17%)</title><a xlink:href="profiling-no-db-pl-1-line.html#main__CORE_print" target="_top"><rect x="306.8" y="65" width="2.1" height="15.0" fill="rgb(207,27,48)" rx="2" ry="2"/>
+</a>
+</g>
+<g class="func_g" onmouseover="s('main::BEGIN@1 (966 microseconds, 3.77%)')" onmouseout="c()">
+<title>main::BEGIN@1 (966 microseconds, 3.77%)</title><a xlink:href="profiling-no-db-pl-1-line.html#1" target="_top"><rect x="10.0" y="65" width="44.5" height="15.0" fill="rgb(214,18,47)" rx="2" ry="2"/>
+<text text-anchor="" x="13" y="75.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)">main..</text>
+</a>
+</g>
+<g class="func_g" onmouseover="s('main::BEGIN@2 (5,478 microseconds, 21.38%)')" onmouseout="c()">
+<title>main::BEGIN@2 (5,478 microseconds, 21.38%)</title><a xlink:href="profiling-no-db-pl-1-line.html#2" target="_top"><rect x="54.5" y="65" width="252.3" height="15.0" fill="rgb(228,161,29)" rx="2" ry="2"/>
+<text text-anchor="" x="57.5173256361056" y="75.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)">main::BEGIN@2</text>
+</a>
+</g>
+<g class="func_g" onmouseover="s('strict::CORE:match (14 microseconds, 0.05%)')" onmouseout="c()">
+<title>strict::CORE:match (14 microseconds, 0.05%)</title><a xlink:href="strict-pm-2-line.html#strict__CORE_match" target="_top"><rect x="50.4" y="49" width="0.7" height="15.0" fill="rgb(241,7,45)" rx="2" ry="2"/>
+</a>
+</g>
+<g class="func_g" onmouseover="s('strict::import (38 microseconds, 0.15%)')" onmouseout="c()">
+<title>strict::import (38 microseconds, 0.15%)</title><a xlink:href="strict-pm-2-line.html#42" target="_top"><rect x="52.8" y="49" width="1.7" height="15.0" fill="rgb(248,155,13)" rx="2" ry="2"/>
+</a>
+</g>
+<g class="func_g" onmouseover="s('strict::CORE:regcomp (38 microseconds, 0.15%)')" onmouseout="c()">
+<title>strict::CORE:regcomp (38 microseconds, 0.15%)</title><a xlink:href="strict-pm-2-line.html#strict__CORE_regcomp" target="_top"><rect x="51.1" y="49" width="1.7" height="15.0" fill="rgb(254,55,52)" rx="2" ry="2"/>
+</a>
+</g>
+<g class="func_g" onmouseover="s('main::light_loop (2,219 microseconds, 8.66%)')" onmouseout="c()">
+<title>main::light_loop (2,219 microseconds, 8.66%)</title><a xlink:href="profiling-no-db-pl-1-line.html#4" target="_top"><rect x="1021.9" y="33" width="102.2" height="15.0" fill="rgb(225,45,33)" rx="2" ry="2"/>
+<text text-anchor="" x="1024.8675269236" y="43.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)">main::light_l..</text>
+</a>
+</g>
+</svg>
