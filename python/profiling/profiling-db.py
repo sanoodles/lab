@@ -8,8 +8,7 @@ def light_query():
         FROM table1, table2
     """
     cur.execute(st)
-    rows = cur.fetchall()
-    for row in rows:
+    for row in cur:
         pass
 
 def heavy_query():
@@ -19,8 +18,7 @@ def heavy_query():
         ORDER BY table1.field1
     """
     cur.execute(st)
-    rows = cur.fetchall()
-    for row in rows:
+    for row in cur:
         pass
 
 def mid_tier():
