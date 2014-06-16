@@ -35,23 +35,23 @@ print "Content-Type: text/html\n\n";
 print "<pre>";
 
 title("count empty string");
-my $res0 =()= $s0 =~ /\n/g;
+my $res0 = () = $s0 =~ /\n/g;
 var_dump($res0);
 
 title("count no occurrences");
-my $res1 =()= $s1 =~ /\n/g;
+my $res1 = () = $s1 =~ /\n/g;
 var_dump($res1);
 
 title("count as sufix");
-my $res2 =()= $s2 =~ /\n/g;
+my $res2 = () = $s2 =~ /\n/g;
 var_dump($res2);
 
 title("count as infix");
-my $res3 =()= $s3 =~ /\n/g;
+my $res3 = () = $s3 =~ /\n/g;
 var_dump($res3);
 
 title("count as prefix");
-my $res4 =()= $s4 =~ /\n/g;
+my $res4 = () = $s4 =~ /\n/g;
 var_dump($res4);
 
 print "</pre>";
