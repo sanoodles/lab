@@ -27,10 +27,10 @@ res2 = res2.toISOString().substr(0, 10);
 var_export(res2);
 
 title('last day of this month as ISO');
-var res3 = (new Date((new Date()).getFullYear(), (new Date()).getMonth() + 1, 1)).toISOString().substr(0, 10); // day 0 gives the *penultimate* day of the month. o_O
+var res3 = (new Date((new Date()).getFullYear(), (new Date()).getMonth() + 1, 0)).getDate();
 var_export(res3);
 
 title('last day of given month as ISO');
-var res4 = (new Date(2014, 2 - 1 + 1, 1)).toISOString().substr(0, 10);
+var res4 = (new Date(2014, 2 - 1 + 1, 0)).getDate();
 var_export(res4);
 
