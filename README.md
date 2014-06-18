@@ -6,7 +6,7 @@ Table of contents:
 | ---------------------------     |:---------:| ---------:| ---------:| ---------:|
 | Assignment val/ref              | Tested    | Tested    | Tested    | Tested    |
 | Substring count                 | YES       | YES       | YES       | YES       |
-| Dates                           |           | YES       |           |           |
+| Dates                           | YES       | YES       | YES       | YES       |
 | Array key exists                | Tested    | Tested    | Tested    | Tested    |
 | Array merge                     | Tested    | Tested    | Tested    | Tested    |
 | Array keys                      | Tested    | Tested    | Tested    | Tested    |
