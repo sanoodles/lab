@@ -5,11 +5,12 @@ Table of contents:
 | Experiment                      | JS        | Perl      | PHP       | Python    |
 | ---------------------------     |:---------:| ---------:| ---------:| ---------:|
 | Assignment val/ref              | Tested    | Tested    | Tested    | Tested    |
+| Substring count                 | YES       | YES       | YES       | YES       |
+| Dates                           |           | YES       |           |           |
 | Array key exists                | Tested    | Tested    | Tested    | Tested    |
 | Array merge                     | Tested    | Tested    | Tested    | Tested    |
 | Array keys                      | Tested    | Tested    | Tested    | Tested    |
 | Explode                         | Tested    | Tested    | Tested    | Tested    |
-| Substring count                 | YES       | YES       | YES       | YES       |
 | Map access                      | Tested    | Tested    | Tested    | Tested    |
 | HTML forms                      | YES(1)    | YES       | YES       | YES       |
 | OO: same class dif. object      | n/a       | n/a       | YES       | n/a       |
