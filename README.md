@@ -30,7 +30,7 @@ Legend
   * For Python: unittest
 * (1): Both client, and server versions. Server is Node.js & Express.
 * Profiling
+  * For JS: Node.js + perf + FlameGraph
   * For Perl: NYTProf
   * For PHP: Xhprof
   * For Python: cProfile + Gprof2Dot
-
