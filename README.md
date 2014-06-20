@@ -16,7 +16,7 @@ Table of contents:
 | OO: same class dif. object      | n/a       | n/a       | YES       | n/a       |
 | OO: same superclass dif. object | n/a       | n/a       | YES       | n/a       |
 | Strictly triangular matrix      | Tested    | Tested    | Tested    | Tested    |
-| Profiling: no DB                |           | YES       | YES       | YES       |
+| Profiling: no DB                | YES       | YES       | YES       | YES       |
 | Profiling: DB                   |           | YES       | YES       | YES       |
 
 Legend
