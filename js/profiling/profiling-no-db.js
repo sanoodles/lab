@@ -22,5 +22,5 @@ function top_tier() {
 }
 
 
-setTimeout(top_tier(), 3000);
+top_tier();
 
