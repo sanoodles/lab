@@ -25,7 +25,9 @@ sub observation
   print "\n$v";
 }
 
-my $MAX_MATCH_DISTANCE = 2;
+
+
+use constant MAX_MATCH_DISTANCE => 2;
 
 my $map = {
   a => '10',
@@ -75,27 +77,27 @@ foreach my $key (keys $map)
 print "</pre></td><td style='padding-left: 2em; vertical-align: top;'><pre>";
 
 title('Filter STM');
-my $filteredStm = StrictlyTriangularMatrix::filter($stm, getIsDistanceAMatchFunction($MAX_MATCH_DISTANCE));
+my $filteredStm = StrictlyTriangularMatrix::filter($stm, getIsDistanceAMatchFunction(MAX_MATCH_DISTANCE));
 var_dump($filteredStm);
 while ((my $ki, my $row) = each $filteredStm)
 {
   while ((my $kj, my $v) = each %{$row})
   {
-    ok($v <= $MAX_MATCH_DISTANCE);
+    ok($v <= MAX_MATCH_DISTANCE);
   }
 }
 
 title('Create filtered STM from map');
 $filteredStm = StrictlyTriangularMatrix::createFromMapAndFilter($map, 
 		\&some_aggregation, 
-		getIsDistanceAMatchFunction($MAX_MATCH_DISTANCE)
+		getIsDistanceAMatchFunction(MAX_MATCH_DISTANCE)
 );
 var_dump($filteredStm);
 while ((my $ki, my $row) = each $filteredStm)
 {
   while ((my $kj, my $v) = each %{$row})
   {
-    ok($v <= $MAX_MATCH_DISTANCE);
+    ok($v <= MAX_MATCH_DISTANCE);
   }
 }
 
