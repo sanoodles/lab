@@ -1,11 +1,15 @@
 =pod
-Methods for using PHP matrices as strictly lower triangular matrices.
+Methods for using Perl matrices as strictly lower triangular matrices.
 
 They allow users to abstract from the bulky iteration syntax needed
 for this data type (two nested fors, and the diagonal test).
 
 The keys of the arrays and matrices involved in the operations are
 preserved.
+
+The ability to createFromMapAndFilter at once was created as 
+performance optimization to the otherwise sequence of calls to
+createFromMap and filter.
 =cut
 package StrictlyTriangularMatrix;
 
@@ -16,7 +20,24 @@ sub createFromMap {
   my $map = shift;
   my $aggregationFunction = shift;
 
+  return _createFromMap($map, $aggregationFunction, undef);
+}
+
+sub createFromMapAndFilter {
+  my $map = shift;
+  my $aggregationFunction = shift;
+  my $testFunction = shift;
+
+  return _createFromMap($map, $aggregationFunction, $testFunction);
+}
+
+sub _createFromMap {
+  my $map = shift;
+  my $aggregationFunction = shift;
+  my $testFunction = shift;
+
   my %res;
+  my $aggregationResult;
   foreach my $ki (keys $map)
   {
     foreach my $kj (keys $map)
@@ -25,7 +46,10 @@ sub createFromMap {
       {
         last;
       }
-      $res{$ki}{$kj} = &$aggregationFunction($map->{$ki}, $map->{$kj});
+      $aggregationResult = &$aggregationFunction($map->{$ki}, $map->{$kj});
+      if (not defined $testFunction or &$testFunction($aggregationResult)) {
+        $res{$ki}{$kj} = $aggregationResult;
+      }
     }
   }
   return \%res;

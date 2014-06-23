@@ -59,7 +59,7 @@ sub getIsDistanceAMatchFunction {
 print "Content-Type: text/html\n\n";
 print "<table><tr><td><pre>";
 
-title('Strictly triangular matrix');
+title('Create STM from map');
 my $stm = StrictlyTriangularMatrix::createFromMap($map, \&some_aggregation); # http://perldoc.perl.org/perlref.html
 var_dump($stm);
 my $isFirstElement = 1;
@@ -74,8 +74,22 @@ foreach my $key (keys $map)
 
 print "</pre></td><td style='padding-left: 2em; vertical-align: top;'><pre>";
 
-title('Filtered strictly triangular matrix');
+title('Filter STM');
 my $filteredStm = StrictlyTriangularMatrix::filter($stm, getIsDistanceAMatchFunction($MAX_MATCH_DISTANCE));
+var_dump($filteredStm);
+while ((my $ki, my $row) = each $filteredStm)
+{
+  while ((my $kj, my $v) = each %{$row})
+  {
+    ok($v <= $MAX_MATCH_DISTANCE);
+  }
+}
+
+title('Create filtered STM from map');
+$filteredStm = StrictlyTriangularMatrix::createFromMapAndFilter($map, 
+		\&some_aggregation, 
+		getIsDistanceAMatchFunction($MAX_MATCH_DISTANCE)
+);
 var_dump($filteredStm);
 while ((my $ki, my $row) = each $filteredStm)
 {
