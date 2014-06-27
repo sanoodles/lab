@@ -56,9 +56,17 @@ echo "</pre>";
 echo "</td><td style='padding-left: 2em; vertical-align: top;'>";
 
 echo "<pre>";
+
 title("Filtered strictly triangular matrix");
-$filteredStm = StrictlyTriangularMatrix::filter($stm, getIsDistanceAMatchFunction(MAX_MATCH_DISTANCE));
-var_dump($filteredStm);
+$filteredStm1 = StrictlyTriangularMatrix::filter($stm, 
+    getIsDistanceAMatchFunction(MAX_MATCH_DISTANCE));
+var_dump($filteredStm1);
+
+title("Create filtered STM from map");
+$filteredStm2 = StrictlyTriangularMatrix::createFromMapAndFilter($stm, 
+    "some_aggregation", getIsDistanceAMatchFunction(MAX_MATCH_DISTANCE));
+var_dump($filteredStm2);
+
 echo "</pre>";
 
 echo "</td></tr></table>";
@@ -78,13 +86,22 @@ class Test extends PHPUnit_Framework_TestCase
 
   public function testFilter()
   {
-    global $filteredStm;
-    foreach ($filteredStm as $rowKey => $row) {
+    global $filteredStm1;
+    foreach ($filteredStm1 as $rowKey => $row) {
+      foreach ($row as $colKey => $value) {
+        $this->assertTrue($value <= MAX_MATCH_DISTANCE);
+      }
+    }
+  }
+  
+  public function testCreateFilteredStmFromMap()
+  {
+    global $filteredStm2;
+    foreach ($filteredStm2 as $rowKey => $row) {
       foreach ($row as $colKey => $value) {
         $this->assertTrue($value <= MAX_MATCH_DISTANCE);
       }
     }
   }
 }
-
 ?>
