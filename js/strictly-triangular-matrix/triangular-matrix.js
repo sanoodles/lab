@@ -36,6 +36,10 @@ var stm = StrictlyTriangularMatrix.createFromMap(map, some_aggregation);
 var_dump(stm);
 
 title("Filtered strictly triangular matrix");
-var filteredStm = StrictlyTriangularMatrix.filter(stm, getDistanceIsAMatchFunction(MAX_MATCH_DISTANCE));
-var_dump(filteredStm);
+var filteredStm1 = StrictlyTriangularMatrix.filter(stm, getDistanceIsAMatchFunction(MAX_MATCH_DISTANCE));
+var_dump(filteredStm1);
+
+title("Create and filter strictly triangular matrix");
+var filteredStm2 = StrictlyTriangularMatrix.createFromMapAndFilter(map, some_aggregation, getDistanceIsAMatchFunction(MAX_MATCH_DISTANCE));
+var_dump(filteredStm2);
 

@@ -1,6 +1,20 @@
 var StrictlyTriangularMatrix = {
+
   createFromMap: function(map, aggregationFunction)
   {
+    return this._createFromMap(map, aggregationFunction, null);
+  },
+
+  createFromMapAndFilter: function(map, 
+      aggregationFunction, 
+      testFunction) {
+    return this._createFromMap(map, aggregationFunction, testFunction);
+  },
+
+  _createFromMap: function(map,
+      aggregationFunction,
+      testFunction) {
+    var aggregationResult;
     var res = [];
     for (var ki in map)
     {
@@ -11,11 +25,15 @@ var StrictlyTriangularMatrix = {
         {
           break;
         }
-        res[ki][kj] = aggregationFunction(map[ki], map[kj]);
+        aggregationResult = aggregationFunction(map[ki], map[kj]);
+        if (testFunction === null || testFunction(aggregationResult)) {
+          res[ki][kj] = aggregationResult;;
+        }
       }
     }
     return res;
   },
+
   filter: function(STM, testFunction)
   {
     var res = [];
