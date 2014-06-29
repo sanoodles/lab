@@ -28,7 +28,7 @@ dic = {
     "d": 40
 };
  
-def some_aggregation():
+def some_aggregation(a, b):
   return random.randint(1, 4)
 
 def getDistanceIsAMatchFunction(maxMatchDistance):
@@ -48,8 +48,16 @@ def application(environ, start_response):
     o.append('</pre></td><td style="padding-left: 2em; vertical-align: top;"><pre>')
 
     title("Filtered strictly triangular matrix")
-    filteredStm = StrictlyTriangularMatrix.filter(stm, getDistanceIsAMatchFunction(MAX_MATCH_DISTANCE))
-    var_dump(filteredStm)
+    filteredStm1 = StrictlyTriangularMatrix.filter(stm, 
+            getDistanceIsAMatchFunction(MAX_MATCH_DISTANCE))
+    var_dump(filteredStm1)
+
+    title("Create and filter strictly triangular matrix")
+    filteredStm2 = StrictlyTriangularMatrix.createFromDictAndFilter(dic, 
+            some_aggregation, 
+            getDistanceIsAMatchFunction(MAX_MATCH_DISTANCE))
+    var_dump(filteredStm2)
+
     o.append("</pre></td></tr></table>")
 
 # wsgi footer
@@ -59,20 +67,33 @@ def application(environ, start_response):
 
 class UnitTests(unittest.TestCase):
     def testA(self):
-      stm = StrictlyTriangularMatrix.createFromDict(dic, some_aggregation)
-      isFirstElement = True
-      for key in dic.keys():
-        if (isFirstElement):
-          isFirstElement = False
-          continue
-        self.assertTrue(key in stm)
+        stm = StrictlyTriangularMatrix.createFromDict(dic, 
+              some_aggregation)
+        isFirstElement = True
+        for key in dic.keys():
+            if (isFirstElement):
+                isFirstElement = False
+                continue
+            self.assertTrue(key in stm)
 
     def testB(self):
-      stm = StrictlyTriangularMatrix.createFromDict(dic, some_aggregation)
-      filteredStm = StrictlyTriangularMatrix.filter(stm, getDistanceIsAMatchFunction(MAX_MATCH_DISTANCE))
-      for ki, row in filteredStm.iteritems():
-        for kj, v in row.iteritems():
-          self.assertLessEqual(v, MAX_MATCH_DISTANCE)
+        stm = StrictlyTriangularMatrix.createFromDict(dic, 
+                some_aggregation)
+        filteredStm = StrictlyTriangularMatrix.filter(stm, 
+            getDistanceIsAMatchFunction(MAX_MATCH_DISTANCE))
+        for ki, row in filteredStm.iteritems():
+            for kj, v in row.iteritems():
+                self.assertLessEqual(v, MAX_MATCH_DISTANCE)
+
+    def testC(self):
+        stm = StrictlyTriangularMatrix.createFromDictAndFilter(dic, 
+                some_aggregation, 
+                getDistanceIsAMatchFunction(MAX_MATCH_DISTANCE))
+        filteredStm = StrictlyTriangularMatrix.filter(stm, 
+            getDistanceIsAMatchFunction(MAX_MATCH_DISTANCE))
+        for ki, row in filteredStm.iteritems():
+            for kj, v in row.iteritems():
+                self.assertLessEqual(v, MAX_MATCH_DISTANCE)
 
 if __name__  == '__main__':
     unittest.main() 
