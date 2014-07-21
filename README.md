@@ -11,6 +11,7 @@ Table of contents:
 | Array merge                     | Tested    | Tested    | Tested    | Tested    |
 | Array keys                      | Tested    | Tested    | Tested    | Tested    |
 | Explode                         | Tested    | Tested    | Tested    | Tested    |
+| Assign array to variables       |           | YES       |           |           |
 | Map access                      | Tested    | Tested    | Tested    | Tested    |
 | HTML forms                      | YES(1)    | YES       | YES       | YES       |
 | OO: same class dif. object      | n/a       | n/a       | YES       | n/a       |
