@@ -19,6 +19,8 @@ Table of contents:
 | Strictly triangular matrix      | Tested    | Tested    | Tested    | Tested    |
 | Profiling: no DB                | YES       | YES       | YES       | YES       |
 | Profiling: DB                   | YES       | YES       | YES       | YES       |
+| Async: no DB                    |           |           |           |           |
+| Async: DB                       |           |           |           |           |
 
 Legend
 ------
