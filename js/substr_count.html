@@ -3,8 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title>substr_count.html</title>
+    <link rel="stylesheet" href="qunit.css">
   </head>
   <body>
+    <div id="qunit"></div>
     <script src="substr_count.js"></script>
+    <script src="qunit.js"></script>
+    <script>
+      test("count empty string", function () {
+        strictEqual(res0, 0);
+      });
+      test("count no occurrences", function () {
+        strictEqual(res1, 0);
+      });
+      test("count as suffix", function () {
+        strictEqual(res2, 1);
+      });
+      test("count as infix", function () {
+        strictEqual(res3, 1);
+      });
+      test("count as prefix", function () {
+        strictEqual(res4, 1);
+      });
+    </script>
   </body>
 </html>

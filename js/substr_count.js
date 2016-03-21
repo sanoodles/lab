@@ -28,7 +28,7 @@ title('count no occurrences');
 var res1 = s1.split("\n").length - 1;
 var_export(res1);
 
-title('count as sufix');
+title('count as suffix');
 var res2 = s2.split("\n").length - 1;
 var_export(res2);
 
@@ -37,6 +37,6 @@ var res3 = s3.split("\n").length - 1;
 var_export(res3);
 
 title('count as prefix');
-var res3 = s3.split("\n").length - 1;
-var_export(res3);
+var res4 = s4.split("\n").length - 1;
+var_export(res4);
 
