@@ -2,6 +2,7 @@ lab
 ===
 
 To learn and compare all the web-related fundamentals for each language:
+
 1. The language syntax
 2. Manipulation of strings, ISO dates, arrays and dictionaries
 3. Reading of HTTP parameters
