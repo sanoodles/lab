@@ -1,5 +1,14 @@
 lab
 ===
+
+To learn and compare all the web-related fundamentals for each language:
+1. The language syntax
+2. Manipulation of strings, ISO dates, arrays and dictionaries
+3. Reading of HTTP parameters
+4. Unit testing
+5. Basic profiling
+6. Access to PostgreSQL database
+
 Table of contents:
 
 | Experiment                      | JS        | Perl      | PHP       | Python    |
