@@ -1,5 +1,15 @@
 lab
 ===
+
+To learn and compare all the web-related fundamentals for each language:
+
+1. The language syntax
+2. Manipulation of strings, ISO dates, arrays and dictionaries
+3. Reading of HTTP parameters
+4. Unit testing
+5. Basic profiling
+6. Access to PostgreSQL database
+
 Table of contents:
 
 | Experiment                      | JS        | Perl      | PHP       | Python    |
@@ -11,6 +21,7 @@ Table of contents:
 | Array merge                     | Tested    | Tested    | Tested    | Tested    |
 | Array keys                      | Tested    | Tested    | Tested    | Tested    |
 | Explode                         | Tested    | Tested    | Tested    | Tested    |
+| Assign array to variables       | Tested    | Tested    |           |           |
 | Map access                      | Tested    | Tested    | Tested    | Tested    |
 | HTML forms                      | YES(1)    | YES       | YES       | YES       |
 | OO: same class dif. object      | n/a       | n/a       | YES       | n/a       |
@@ -18,6 +29,8 @@ Table of contents:
 | Strictly triangular matrix      | Tested    | Tested    | Tested    | Tested    |
 | Profiling: no DB                | YES       | YES       | YES       | YES       |
 | Profiling: DB                   | YES       | YES       | YES       | YES       |
+| Async: no DB                    |           |           |           |           |
+| Async: DB                       |           |           |           |           |
 
 Legend
 ------
