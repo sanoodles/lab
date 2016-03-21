@@ -15,7 +15,7 @@ Table of contents:
 | Experiment                      | JS        | Perl      | PHP       | Python    |
 | ---------------------------     |:---------:| ---------:| ---------:| ---------:|
 | Assignment val/ref              | Tested    | Tested    | Tested    | Tested    |
-| Substring count                 | YES       | YES       | YES       | YES       |
+| Substring count                 | Tested    | YES       | YES       | YES       |
 | Dates                           | YES       | YES       | YES       | YES       |
 | Array key exists                | Tested    | Tested    | Tested    | Tested    |
 | Array merge                     | Tested    | Tested    | Tested    | Tested    |
